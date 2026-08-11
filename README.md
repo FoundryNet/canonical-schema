@@ -1,0 +1,153 @@
+# FoundryNet Canonical Schema for Industrial Telemetry
+
+An open, universal schema for normalizing industrial equipment telemetry across
+manufacturers, protocols, and platforms.
+
+**366 canonical fields · 16,908 vendor tag mappings · 18 OEM families · MIT licensed**
+
+---
+
+## The problem
+
+Industrial equipment from N manufacturers produces telemetry in N incompatible
+formats. A spindle speed is `S1_ActualVelocity` on one controller,
+`SP_SPEED [RPM]` on another, and `Rotational_Speed_1/min` on a third. They are
+the same physical quantity, and nothing in the data says so.
+
+Every integration re-solves this from scratch. The mapping table gets rebuilt
+per vendor, per site, per project, and it is thrown away when the project ends.
+
+## The schema
+
+This repository is the **dictionary** — the agreed target vocabulary that
+vendor-specific tags get translated *into*.
+
+| Vertical | Fields | Covers |
+|---|---:|---|
+| `cnc` | 82 | CNC machine tools |
+| `robotics` | 53 | Robotics |
+| `additive` | 6 | Additive manufacturing |
+| `vehicle` | 64 | Vehicles & off-highway |
+| `amr` | 10 | Autonomous mobile robots |
+| `universal` | 151 | Universal (cross-vertical) |
+
+Every field carries a name, a vertical, and — where the source data supports it
+— a type, a unit, and an example value. Each field also lists the real vendor
+tags observed to map onto it and which OEM families those tags came from.
+
+```json
+{
+  "field": "spindle_speed_rpm",
+  "type": "integer",
+  "unit": "rpm",
+  "description": "Speed of the spindle, in rpm.",
+  "vertical": "cnc",
+  "example_value": 3400,
+  "mapped_from": ["Act Sp Speed (RPM)", "SP_SPEED [RPM]", "SPRPM (1/min)",
+                  "Rotational_Speed_1/min", "spindle_velocity[rpm]", "S1_ActualVelocity"],
+  "oem_coverage": ["brother", "dmg_mori", "fanuc", "haas", "heidenhain",
+                   "hurco", "mazak", "mitsubishi", "siemens", "tornos"],
+  "mapping_count": 307
+}
+```
+
+## What's in here
+
+```
+schema/
+  fields.json              all 366 canonical fields, full metadata
+  fields.csv               same data, one row per field
+  oem-mappings/            {raw_tag: canonical_field} per OEM family
+  verticals/               field lists per machine class
+docs/
+  FIELD_REFERENCE.md       every field, documented
+  INTEGRATION_GUIDE.md     how to use this in your project
+  CONTRIBUTING.md          how to submit mappings and fields
+  WHY_CANONICAL.md         why this problem outlived two decades of standards
+```
+
+## Usage
+
+Use these field names in your AI agents, dashboards, automations, and
+integrations. When every system speaks the same language, interoperability
+stops being a project.
+
+```python
+import json, urllib.request
+
+URL = ("https://raw.githubusercontent.com/FoundryNet/canonical-schema"
+       "/main/schema/fields.json")
+schema = json.load(urllib.request.urlopen(URL))
+by_name = {f["field"]: f for f in schema["fields"]}
+
+# Reverse index: any known vendor tag -> canonical field
+lookup = {tag: f["field"] for f in schema["fields"] for tag in f["mapped_from"]}
+print(lookup.get("S1_ActualVelocity"))   # -> spindle_speed_rpm
+```
+
+See [docs/INTEGRATION_GUIDE.md](docs/INTEGRATION_GUIDE.md) for adapter patterns,
+validation, and unit handling.
+
+## OEM coverage
+
+1,865 of the 16,908 mappings are attributed to a named OEM family.
+The remainder are generic, cross-vendor, and multilingual tag variants that are
+not specific to one manufacturer.
+
+| OEM family | Vendor tags | Canonical fields touched |
+|---|---:|---:|
+| `abb` | 17 | 4 |
+| `brother` | 27 | 23 |
+| `caterpillar` | 21 | 19 |
+| `dmg_mori` | 43 | 20 |
+| `doosan` | 25 | 23 |
+| `fanuc` | 759 | 66 |
+| `haas` | 240 | 34 |
+| `heidenhain` | 44 | 33 |
+| `hurco` | 17 | 15 |
+| `komatsu` | 8 | 8 |
+| `kuka` | 44 | 6 |
+| `mazak` | 46 | 19 |
+| `mitsubishi` | 30 | 29 |
+| `octoprint` | 17 | 17 |
+| `okuma` | 34 | 18 |
+| `siemens` | 440 | 56 |
+| `tornos` | 29 | 25 |
+| `universal_robots` | 24 | 3 |
+
+## Honest limits
+
+This is extracted from a production mapping corpus, and the corpus was built to
+answer "what canonical field does this tag mean?" — not to be a typed data
+dictionary. So coverage of the *descriptive* metadata is partial, and the files
+say which is which rather than guessing:
+
+- **Types**: 172 of 366 fields have a type. 101 are `observed`
+  (derived from real sample values in the corpus); the rest are inferred from a
+  unit or name suffix. 194 are `unspecified` — no basis to state one.
+- **Units**: 58 of 366 fields carry a unit — `declared` where a
+  vertical pack states it, `derived` where the field-name suffix implies it.
+  Absence of a unit does not mean the field is unitless.
+- **Descriptions**: generated glosses from the field name and unit. They are
+  editorial, not extracted, and are the most valuable thing to improve.
+- **Process manufacturing**: `schema/verticals/process.json` lists
+  74 declared process fields (pharma / F&B / chemical) that have **no vendor
+  tag mappings yet**, so they are not counted in the 366.
+
+Every field records `type_source` and `unit_source` so you can filter to only
+what was measured. Improving these is exactly what
+[CONTRIBUTING.md](docs/CONTRIBUTING.md) is for.
+
+## The kernel (optional)
+
+The schema is the dictionary. Translating arbitrary vendor telemetry *into* it —
+including tags no one has ever seen — is a separate problem, and that is what
+the FoundryNet Forge kernel does. It is a commercial product and is not part of
+this repository.
+
+**The schema is free. The translation is the product.**
+
+## License
+
+MIT — see [LICENSE](LICENSE). Use it in commercial products, fork it, vendor it,
+embed it. Attribution appreciated, not required.

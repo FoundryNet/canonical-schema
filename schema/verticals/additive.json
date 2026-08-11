@@ -1,0 +1,13 @@
+{
+  "vertical": "additive",
+  "description": "Additive manufacturing / 3D printers — hotend, bed, filament, layers.",
+  "field_count": 6,
+  "fields": [
+    "filament_used_cm3",
+    "filament_used_mm",
+    "sensor_readings.hotend2_target",
+    "sensor_readings.hotend2_temp",
+    "sensor_readings.hotend_target",
+    "sensor_readings.hotend_temp"
+  ]
+}

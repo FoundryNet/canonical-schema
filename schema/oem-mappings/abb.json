@@ -1,0 +1,31 @@
+{
+  "oem": "abb",
+  "tag_count": 17,
+  "row_count": 17,
+  "confirmed_rows": 17,
+  "canonical_fields": [
+    "alarm_description",
+    "metadata.controller_model",
+    "model",
+    "payload_kg"
+  ],
+  "mappings": {
+    "EVENTMESSAGE": "alarm_description",
+    "EventMessage": "alarm_description",
+    "IRB MODEL": "model",
+    "IRBMODEL": "model",
+    "IRB_MODEL": "model",
+    "Irb Model": "model",
+    "OmniCore": "metadata.controller_model",
+    "Toolload (lbs)": "payload_kg",
+    "Toolload [g]": "payload_kg",
+    "Toolload(kg)": "payload_kg",
+    "Toolload(lbs)": "payload_kg",
+    "Toolload_g": "payload_kg",
+    "irc5": "metadata.controller_model",
+    "omnicore": "metadata.controller_model",
+    "toolload [lbs]": "payload_kg",
+    "toolload(g)": "payload_kg",
+    "toolload_g": "payload_kg"
+  }
+}

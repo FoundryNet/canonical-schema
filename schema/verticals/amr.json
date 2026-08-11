@@ -1,0 +1,17 @@
+{
+  "vertical": "amr",
+  "description": "Autonomous mobile robots — navigation, battery, mission state.",
+  "field_count": 10,
+  "fields": [
+    "amr.battery.charge",
+    "amr.battery.charging",
+    "amr.battery.voltage",
+    "amr.operating_mode",
+    "amr.position.theta",
+    "amr.position.x",
+    "amr.position.y",
+    "amr.safety.estop",
+    "amr.velocity.angular",
+    "amr.velocity.linear"
+  ]
+}

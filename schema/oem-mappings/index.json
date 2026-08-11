@@ -1,0 +1,94 @@
+{
+  "oem_families": [
+    {
+      "oem": "abb",
+      "tags": 17,
+      "canonical_fields": 4
+    },
+    {
+      "oem": "brother",
+      "tags": 27,
+      "canonical_fields": 23
+    },
+    {
+      "oem": "caterpillar",
+      "tags": 21,
+      "canonical_fields": 19
+    },
+    {
+      "oem": "dmg_mori",
+      "tags": 43,
+      "canonical_fields": 20
+    },
+    {
+      "oem": "doosan",
+      "tags": 25,
+      "canonical_fields": 23
+    },
+    {
+      "oem": "fanuc",
+      "tags": 759,
+      "canonical_fields": 66
+    },
+    {
+      "oem": "haas",
+      "tags": 240,
+      "canonical_fields": 34
+    },
+    {
+      "oem": "heidenhain",
+      "tags": 44,
+      "canonical_fields": 33
+    },
+    {
+      "oem": "hurco",
+      "tags": 17,
+      "canonical_fields": 15
+    },
+    {
+      "oem": "komatsu",
+      "tags": 8,
+      "canonical_fields": 8
+    },
+    {
+      "oem": "kuka",
+      "tags": 44,
+      "canonical_fields": 6
+    },
+    {
+      "oem": "mazak",
+      "tags": 46,
+      "canonical_fields": 19
+    },
+    {
+      "oem": "mitsubishi",
+      "tags": 30,
+      "canonical_fields": 29
+    },
+    {
+      "oem": "octoprint",
+      "tags": 17,
+      "canonical_fields": 17
+    },
+    {
+      "oem": "okuma",
+      "tags": 34,
+      "canonical_fields": 18
+    },
+    {
+      "oem": "siemens",
+      "tags": 440,
+      "canonical_fields": 56
+    },
+    {
+      "oem": "tornos",
+      "tags": 29,
+      "canonical_fields": 25
+    },
+    {
+      "oem": "universal_robots",
+      "tags": 24,
+      "canonical_fields": 3
+    }
+  ]
+}

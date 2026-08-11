@@ -1,0 +1,42 @@
+{
+  "oem": "hurco",
+  "tag_count": 17,
+  "row_count": 17,
+  "confirmed_rows": 17,
+  "canonical_fields": [
+    "axes.y_load_pct",
+    "cycle_time_seconds",
+    "door_status",
+    "emergency_stop_active",
+    "execution_state",
+    "feed_rate_actual",
+    "machine_state",
+    "motion_time_hours",
+    "parts_count",
+    "power_on_hours",
+    "program_id",
+    "program_line_number",
+    "spindle_speed_commanded",
+    "spindle_speed_rpm",
+    "tool_life_remaining"
+  ],
+  "mappings": {
+    "Cycle": "machine_state",
+    "CycleTimeSeconds": "cycle_time_seconds",
+    "DoorState": "door_status",
+    "EStopActive": "emergency_stop_active",
+    "ExecutionMode": "execution_state",
+    "FeedRateActual": "feed_rate_actual",
+    "MachineState": "machine_state",
+    "MotionHours": "motion_time_hours",
+    "PartsCounter": "parts_count",
+    "ProgramFile": "program_id",
+    "ProgramLine": "program_line_number",
+    "RuntimeHours": "power_on_hours",
+    "SpindleRPM": "spindle_speed_rpm",
+    "SpindleRPMActual": "spindle_speed_rpm",
+    "SpindleRPMCommanded": "spindle_speed_commanded",
+    "ToolLifeMinutes": "tool_life_remaining",
+    "YAxisLoad": "axes.y_load_pct"
+  }
+}

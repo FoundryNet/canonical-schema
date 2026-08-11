@@ -1,0 +1,37 @@
+{
+  "oem": "universal_robots",
+  "tag_count": 24,
+  "row_count": 24,
+  "confirmed_rows": 24,
+  "canonical_fields": [
+    "alarm_code",
+    "model",
+    "payload_kg"
+  ],
+  "mappings": {
+    "PAYLOAD_MASS [g]": "payload_kg",
+    "Payload Mass [g]": "payload_kg",
+    "Payload Mass(lbs)": "payload_kg",
+    "Payload Mass_g": "payload_kg",
+    "Payload Mass_lb": "payload_kg",
+    "Safety Fault": "alarm_code",
+    "URTYPE": "model",
+    "Ur Model": "model",
+    "Ur Type": "model",
+    "Ur_Model": "model",
+    "Ur_Type": "model",
+    "payload mass(lb)": "payload_kg",
+    "payload mass_lb": "payload_kg",
+    "payload mass_lbs": "payload_kg",
+    "payload_mass (kg)": "payload_kg",
+    "payload_mass [kg]": "payload_kg",
+    "payloadmass [lb]": "payload_kg",
+    "payloadmass(g)": "payload_kg",
+    "payloadmass_kg": "payload_kg",
+    "payloadmass_lb": "payload_kg",
+    "safety fault": "alarm_code",
+    "safety_fault": "alarm_code",
+    "safetyfault": "alarm_code",
+    "ur model": "model"
+  }
+}

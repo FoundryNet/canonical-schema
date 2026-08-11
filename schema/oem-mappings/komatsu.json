@@ -1,0 +1,26 @@
+{
+  "oem": "komatsu",
+  "tag_count": 8,
+  "row_count": 8,
+  "confirmed_rows": 8,
+  "canonical_fields": [
+    "alarm_description",
+    "fuel_consumed",
+    "ground_speed",
+    "machine_state",
+    "power_on_hours",
+    "sensor_readings.hydraulic_pressure",
+    "sensor_readings.oil_pressure",
+    "service_meter_hours"
+  ],
+  "mappings": {
+    "EngineRunTime": "power_on_hours",
+    "ErrorMessage": "alarm_description",
+    "FuelConsumption": "fuel_consumed",
+    "GroundSpeed": "ground_speed",
+    "HydraulicPumpPressure": "sensor_readings.hydraulic_pressure",
+    "OilPressure": "sensor_readings.oil_pressure",
+    "ServiceMeter": "service_meter_hours",
+    "WorkMode": "machine_state"
+  }
+}

@@ -9,6 +9,14 @@ venv/
 node_modules/
 npm-debug.log*
 
+# Environment and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.service-key
+
 # OS
 .DS_Store
 Thumbs.db

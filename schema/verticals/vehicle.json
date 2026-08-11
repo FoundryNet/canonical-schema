@@ -1,6 +1,6 @@
 {
   "vertical": "vehicle",
-  "description": "Off-highway and on-road vehicles — engine, fuel, hydraulics, telematics.",
+  "description": "Off-highway and on-road vehicles. Engine, fuel, hydraulics, telematics.",
   "field_count": 64,
   "fields": [
     "vehicle.acceleration_x",

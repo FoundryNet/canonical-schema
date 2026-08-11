@@ -1,6 +1,6 @@
 {
   "vertical": "robotics",
-  "description": "Industrial robots and cobots — joints, TCP, payload, ROS topics.",
+  "description": "Industrial robots and cobots. Joints, TCP, payload, ROS topics.",
   "field_count": 53,
   "fields": [
     "robot.joint.current",

@@ -1,6 +1,6 @@
 {
   "vertical": "additive",
-  "description": "Additive manufacturing / 3D printers — hotend, bed, filament, layers.",
+  "description": "Additive manufacturing and 3D printers. Hotend, bed, filament, layers.",
   "field_count": 6,
   "fields": [
     "filament_used_cm3",

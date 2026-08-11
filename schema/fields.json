@@ -30,7 +30,7 @@
     "type + example_value": "observed from corpus sample values where present, else inferred from unit or name suffix (see type_source)",
     "unit": "declared in a shipped vertical pack, else derived from the field-name suffix (see unit_source)",
     "vertical": "assigned by the kernel's canonical-vertical rules",
-    "description": "generated human-readable gloss — editorial, not extracted"
+    "description": "generated human-readable gloss. Editorial, not extracted."
   },
   "fields": [
     {

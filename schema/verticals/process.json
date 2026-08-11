@@ -1,9 +1,9 @@
 {
   "vertical": "process",
-  "description": "Process manufacturing (pharma / food & beverage / chemical) — vessels, reactors, CIP, packaging.",
+  "description": "Process manufacturing for pharma, food and beverage, and chemical. Vessels, reactors, CIP, packaging.",
   "field_count": 74,
   "status": "declared",
-  "note": "These canonical names are accepted by the reference implementation but have NO vendor tag mappings in the corpus yet, so they are not counted in fields.json. Contributions of real vendor tags are especially welcome here.",
+  "note": "These canonical names are accepted by the reference implementation but have no vendor tag mappings in the corpus yet, so they are not counted in fields.json. Contributions of real vendor tags are especially welcome here.",
   "fields": [
     "agitator_speed_rpm",
     "agitator_torque_nm",

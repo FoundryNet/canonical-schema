@@ -1,6 +1,6 @@
 {
   "vertical": "amr",
-  "description": "Autonomous mobile robots — navigation, battery, mission state.",
+  "description": "Autonomous mobile robots. Navigation, battery, mission state.",
   "field_count": 10,
   "fields": [
     "amr.battery.charge",

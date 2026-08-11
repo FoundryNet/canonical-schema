@@ -1,6 +1,6 @@
 {
   "vertical": "cnc",
-  "description": "CNC machine tools — spindles, axes, feeds, tooling, coolant.",
+  "description": "CNC machine tools. Spindles, axes, feeds, tooling, coolant.",
   "field_count": 82,
   "fields": [
     "axes.0.load_percent",

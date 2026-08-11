@@ -1,6 +1,6 @@
 {
   "vertical": "universal",
-  "description": "Cross-vertical signals present on any machine class — sensors, power, energy, alarms, identity.",
+  "description": "Cross-vertical signals present on any machine class. Sensors, power, energy, alarms, identity.",
   "field_count": 151,
   "fields": [
     "alarm_code",

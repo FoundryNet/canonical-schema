@@ -33,6 +33,11 @@ Every field has a name and a vertical. Where the source data supports it, a
 field also has a type, a unit, and an example value. Each field lists the real
 vendor tags observed to map onto it, and which OEM families those tags came from.
 
+As of v1.1.0 a field also carries a **unit contract** and a **physics range**.
+The field name tells you what the value means; the contract tells you what unit
+it is in and which source units may be converted into it. 159 fields carry a
+unit contract, 192 carry physics bounds.
+
 ```json
 {
   "field": "spindle_speed_rpm",
@@ -45,9 +50,54 @@ vendor tags observed to map onto it, and which OEM families those tags came from
                   "Rotational_Speed_1/min", "spindle_velocity[rpm]", "S1_ActualVelocity"],
   "oem_coverage": ["brother", "dmg_mori", "fanuc", "haas", "heidenhain",
                    "hurco", "mazak", "mitsubishi", "siemens", "tornos"],
-  "mapping_count": 307
+  "mapping_count": 307,
+
+  "si": true,
+  "quantity": "rotational",
+  "accepted_input_units": ["rpm"],
+  "conversion_required": [],
+  "measurement_type": "instantaneous",
+  "physics_bounds": {"min": -50000, "max": 50000},
+  "bounds_note": "signed: an M04 reverse spindle legitimately reports negative rpm"
 }
 ```
+
+### The unit contract
+
+`unit` is what the field holds. `accepted_input_units` are the source units a
+normalizer may convert FROM, and `conversion_required` is the subset that needs
+converting. A temperature field holding Celsius accepts C, F, K and R:
+
+```json
+"sensor_readings.coolant_temp": {
+  "unit": "C",
+  "accepted_input_units": ["C", "F", "K", "R"],
+  "conversion_required": ["F", "K", "R"],
+  "physics_bounds": {"min": -40, "max": 215},
+  "measurement_type": "instantaneous"
+}
+```
+
+Note that the unit lives in the contract, not in the field name. There is no
+`coolant_temp_c` and no `coolant_temp_f` — one field, one unit, declared.
+
+### Physics bounds
+
+`physics_bounds` is the physically defensible range for the field. A value
+outside it is an equipment error code, not a reading. Industrial controllers
+routinely emit `9999`, `65535` or `-32768` to mean "sensor unavailable", and a
+`9999` landing in a Celsius field reads as a catastrophic overheat. Bounds are
+deliberately generous: they catch the impossible, not the merely unusual.
+
+Where a range is signed, it says so. Spindle speed runs negative because M04
+reverse rotation is a real operation, not an error.
+
+### Measurement type
+
+`measurement_type` is one of `instantaneous`, `cumulative` or `setpoint`. It
+distinguishes a snapshot reading from a lifetime counter from a commanded
+target — without it, `operating_hours: 14203` (lifetime) and
+`operating_hours: 8.5` (since last service) are indistinguishable.
 
 ## What is in here
 

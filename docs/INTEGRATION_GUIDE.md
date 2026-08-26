@@ -71,8 +71,7 @@ f = fields["spindle_speed_rpm"]
 assert f["unit"] == "rpm"
 ```
 
-Only 386 of 694 fields carry a unit, and three more publish a
-`contract_withheld` reason instead of a contract. Treat a missing unit as unknown rather
+Only 391 of 694 fields carry a unit. Treat a missing unit as unknown rather
 than dimensionless. See the coverage section of the README.
 
 ## 5. Limits

@@ -366,14 +366,14 @@ vehicle.wheel_speed_rr,corpus,,rpm,True,rotational,instantaneous,vehicle,5,Speed
 vibration.rms,corpus,,,False,,instantaneous,universal,6,Reported value for rms.
 workholding_pressure,corpus,,bar,True,pressure,instantaneous,cnc,7,Pressure in the machine.
 ac_current_phase_a,vocabulary,,A,True,current,instantaneous,,0,
-ac_current_phase_b,vocabulary,,,False,,instantaneous,,0,
-ac_current_phase_c,vocabulary,,,,,instantaneous,,0,
+ac_current_phase_b,vocabulary,,A,True,current,instantaneous,,0,
+ac_current_phase_c,vocabulary,,A,True,current,instantaneous,,0,
 ac_voltage_ll_ab,vocabulary,,,False,,instantaneous,,0,
 ac_voltage_ll_bc,vocabulary,,,False,,instantaneous,,0,
 ac_voltage_ll_ca,vocabulary,,,False,,instantaneous,,0,
-ac_voltage_phase_a,vocabulary,,,,,instantaneous,,0,
-ac_voltage_phase_b,vocabulary,,,False,,instantaneous,,0,
-ac_voltage_phase_c,vocabulary,,,,,instantaneous,,0,
+ac_voltage_phase_a,vocabulary,,V,True,voltage,instantaneous,,0,
+ac_voltage_phase_b,vocabulary,,V,True,voltage,instantaneous,,0,
+ac_voltage_phase_c,vocabulary,,V,True,voltage,instantaneous,,0,
 accel_z_m_s2,vocabulary,,m/s2,False,vibration_accel,instantaneous,,0,
 active_power_kw,vocabulary,,kW,True,power,instantaneous,energy,0,Total AC active power. Signed: export is negative.
 active_program,vocabulary,,,False,,instantaneous,,0,

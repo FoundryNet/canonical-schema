@@ -1,6 +1,6 @@
 {
   "name": "FoundryNet Canonical Schema for Industrial Telemetry",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "generated": "2026-08-26",
   "license": "MIT",
   "field_count": 694,
@@ -39,7 +39,7 @@
     "description": "generated human-readable gloss. Editorial, not extracted."
   },
   "unit_contract": "Each field declares the unit it holds. `accepted_input_units` lists the source units a normalizer may convert FROM; `conversion_required` lists those needing conversion. `physics_bounds` is the physically defensible range \u2014 a value outside it is a sensor error code, not a reading.",
-  "withheld_contracts": "Three three-phase AC fields have contracts the builder derived wrongly by reading the phase letter as a unit ('_a' as Amps, '_c' as Celsius). Those fields are published without a unit contract and carry contract_withheld.",
+  "withheld_contracts": "None. v2.0.0 withheld three three-phase AC contracts that the builder had derived by reading the phase letter as a unit ('_a' as Amps, '_c' as Celsius). That bug is fixed upstream as of 2026-08-26, so all six ac_*_phase_* fields now publish a real contract: V and A, with bounds starting at 0.",
   "fields": [
     {
       "field": "alarm_code",
@@ -27022,7 +27022,11 @@
       "dimension": "current",
       "accepted_input_units": [
         "A"
-      ]
+      ],
+      "physics_bounds": {
+        "max": 10000.0,
+        "min": 0.0
+      }
     },
     {
       "field": "ac_current_phase_b",
@@ -27032,7 +27036,17 @@
       "mapping_count": 0,
       "measurement_type": "instantaneous",
       "emitted_by": "deterministic_pack",
-      "si": false
+      "unit": "A",
+      "si": true,
+      "quantity": "current",
+      "dimension": "current",
+      "accepted_input_units": [
+        "A"
+      ],
+      "physics_bounds": {
+        "max": 10000.0,
+        "min": 0.0
+      }
     },
     {
       "field": "ac_current_phase_c",
@@ -27042,7 +27056,17 @@
       "mapping_count": 0,
       "measurement_type": "instantaneous",
       "emitted_by": "deterministic_pack",
-      "contract_withheld": "unit contract withheld: typed dimension=temperature/unit=C accepting F/K/R, but this is a current. The builder read the '_c' phase suffix as Celsius."
+      "unit": "A",
+      "si": true,
+      "quantity": "current",
+      "dimension": "current",
+      "accepted_input_units": [
+        "A"
+      ],
+      "physics_bounds": {
+        "max": 10000.0,
+        "min": 0.0
+      }
     },
     {
       "field": "ac_voltage_ll_ab",
@@ -27082,7 +27106,17 @@
       "mapping_count": 0,
       "measurement_type": "instantaneous",
       "emitted_by": "deterministic_pack",
-      "contract_withheld": "unit contract withheld: typed dimension=current/unit=A, but this is a voltage. The builder read the '_a' phase suffix as Amps."
+      "unit": "V",
+      "si": true,
+      "quantity": "voltage",
+      "dimension": "voltage",
+      "accepted_input_units": [
+        "V"
+      ],
+      "physics_bounds": {
+        "max": 50000.0,
+        "min": 0.0
+      }
     },
     {
       "field": "ac_voltage_phase_b",
@@ -27092,7 +27126,17 @@
       "mapping_count": 0,
       "measurement_type": "instantaneous",
       "emitted_by": "deterministic_pack",
-      "si": false
+      "unit": "V",
+      "si": true,
+      "quantity": "voltage",
+      "dimension": "voltage",
+      "accepted_input_units": [
+        "V"
+      ],
+      "physics_bounds": {
+        "max": 50000.0,
+        "min": 0.0
+      }
     },
     {
       "field": "ac_voltage_phase_c",
@@ -27102,7 +27146,17 @@
       "mapping_count": 0,
       "measurement_type": "instantaneous",
       "emitted_by": "deterministic_pack",
-      "contract_withheld": "unit contract withheld: typed dimension=temperature/unit=C accepting F/K/R, but this is a voltage. The builder read the '_c' phase suffix as Celsius."
+      "unit": "V",
+      "si": true,
+      "quantity": "voltage",
+      "dimension": "voltage",
+      "accepted_input_units": [
+        "V"
+      ],
+      "physics_bounds": {
+        "max": 50000.0,
+        "min": 0.0
+      }
     },
     {
       "field": "accel_z_m_s2",

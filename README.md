@@ -41,16 +41,18 @@ vendor tags observed to map onto it, and which OEM families those tags came from
 
 As of v1.1.0 a field also carries a **unit contract** and a **physics range**.
 The field name tells you what the value means; the contract tells you what unit
-it is in and which source units may be converted into it. 386 fields carry a
-unit contract, 219 carry physics bounds.
+it is in and which source units may be converted into it. 391 fields carry a
+unit contract, 225 carry physics bounds.
 
-Three fields are published **without** a contract, carrying a
-`contract_withheld` reason instead: `ac_voltage_phase_a`, `ac_current_phase_c`
-and `ac_voltage_phase_c`. The contract generator read the three-phase suffix as
-a unit (`_a` as Amps, `_c` as Celsius) when it actually means phase A and phase
-C, so it typed two electrical fields as temperatures that accept Fahrenheit. A
-contract you would corrupt data by following is worse than no contract, so
-those three ship without one until the source metadata is fixed.
+**v2.1.0 fixes the three-phase AC contracts.** v2.0.0 shipped three fields with
+no contract at all, because the generator read the three-phase suffix as a unit:
+`_a` as Amps and `_c` as Celsius, when they mean phase A and phase C. That typed
+`ac_voltage_phase_a` as a current and both phase-C fields as temperatures
+accepting Fahrenheit. The upstream generator now refuses to read a
+`phase_<letter>` suffix as a unit, and all six `ac_*_phase_*` fields declare
+their unit explicitly: **V** and **A**, bounded from 0, with 50 kV on the
+voltages so medium-voltage assets (4160 V, 13.8 kV) are no longer rejected
+against a temperature ceiling. Nothing is withheld in this release.
 
 ```json
 {

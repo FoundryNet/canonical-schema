@@ -5553,14 +5553,14 @@ from the 2026-08-22 energy sprint.
 
 ### Contracts withheld
 
-These names are legitimate, but their generated unit contracts were wrong and
-have been withheld rather than published. The generator read a three-phase
-suffix as a unit — `_a` as Amps, `_c` as Celsius — when it means phase A and
-phase C:
+None. v2.0.0 withheld three three-phase AC contracts (`ac_voltage_phase_a`,
+`ac_current_phase_c`, `ac_voltage_phase_c`) because the generator had read the
+phase letter as a unit — `_a` as Amps, `_c` as Celsius — typing a voltage as a
+current and two electrical fields as temperatures that accept Fahrenheit.
 
-- `ac_current_phase_c` — typed dimension=temperature/unit=C accepting F/K/R, but this is a current. The builder read the '_c' phase suffix as Celsius.
-- `ac_voltage_phase_a` — typed dimension=current/unit=A, but this is a voltage. The builder read the '_a' phase suffix as Amps.
-- `ac_voltage_phase_c` — typed dimension=temperature/unit=C accepting F/K/R, but this is a voltage. The builder read the '_c' phase suffix as Celsius.
+Fixed upstream on 2026-08-26. All six `ac_*_phase_*` fields now publish a real
+contract (V and A, bounded from 0), and the publisher fails the build if a field
+named for one physical quantity is ever typed as another.
 
 ### By declared unit
 

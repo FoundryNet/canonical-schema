@@ -46,7 +46,7 @@ Open an issue with:
 - At least one real vendor tag that maps to it, and the equipment it came from.
 
 Fields with no real tag behind them will not be added. That rule is why the
-existing 366 can be trusted.
+existing 694 can be trusted.
 
 ## Correcting a mapping
 

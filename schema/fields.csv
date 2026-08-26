@@ -1,367 +1,695 @@
-field,type,unit,si,quantity,measurement_type,vertical,description
-alarm_code,string,,False,,instantaneous,universal,Code reported by the active alarm.
-alarm_description,string,,False,,instantaneous,universal,Text description of the active alarm.
-alarm_severity,string,,False,,instantaneous,universal,Severity of the active alarm.
-alarm_severity.alarm_group,string,,False,,instantaneous,universal,Reported value for alarm group.
-alarm_severity.axis_number,string,,False,,instantaneous,universal,Reported value for axis number.
-amr.battery.charge,,%,True,percent,instantaneous,amr,Reported value for charge.
-amr.battery.charging,,,False,,instantaneous,amr,Reported value for charging.
-amr.battery.voltage,,,False,,instantaneous,amr,Voltage at the battery.
-amr.operating_mode,enum,,False,,instantaneous,amr,Reported value for operating mode.
-amr.position.theta,,,False,,instantaneous,amr,Reported value for theta.
-amr.position.x,,,False,,instantaneous,amr,Reported value for x.
-amr.position.y,,,False,,instantaneous,amr,Reported value for y.
-amr.safety.estop,,,False,,instantaneous,amr,Reported value for estop.
-amr.velocity.angular,,,False,,instantaneous,amr,Reported value for angular.
-amr.velocity.linear,,,False,,instantaneous,amr,Reported value for linear.
-axes.0.load_percent,float,%,True,percent,instantaneous,cnc,"Load on a machine axis, in %."
-axes.0.position_actual,float,mm,True,length,instantaneous,cnc,Position of a machine axis.
-axes.0.temperature_c,float,degC,True,temperature,instantaneous,cnc,"Temperature of a machine axis, in degC."
-axes.1.position_actual,float,mm,True,length,instantaneous,cnc,Position of a machine axis.
-axes.2.position_actual,float,mm,True,length,instantaneous,cnc,Position of a machine axis.
-axes.a_load_pct,float,%,True,percent,instantaneous,cnc,"Load on a machine axis, in %."
-axes.a_position_actual,,,False,,instantaneous,cnc,Position of a machine axis.
-axes.b_load_pct,float,%,True,percent,instantaneous,cnc,"Load on a machine axis, in %."
-axes.b_position_actual,,,False,,instantaneous,cnc,Position of a machine axis.
-axes.c_load_pct,float,%,True,percent,instantaneous,cnc,"Load on a machine axis, in %."
-axes.c_position_actual,,,False,,instantaneous,cnc,Position of a machine axis.
-axes.x_acceleration,,,False,,instantaneous,cnc,Ratio for a machine axis.
-axes.x_acceleration_commanded,,,False,,setpoint,cnc,Ratio for a machine axis.
-axes.x_current,,,False,,instantaneous,cnc,Electrical current drawn by a machine axis.
-axes.x_current_amps,,,False,,instantaneous,cnc,Electrical current drawn by a machine axis.
-axes.x_following_error,,,False,,instantaneous,cnc,Reported value for x following error.
-axes.x_load_pct,float,%,True,percent,instantaneous,cnc,"Load on a machine axis, in %."
-axes.x_position,,,False,,instantaneous,cnc,Position of a machine axis.
-axes.x_position_actual,,mm,True,length,instantaneous,cnc,Position of a machine axis.
-axes.x_position_commanded,,mm,True,length,setpoint,cnc,Position of a machine axis.
-axes.x_power_kw,float,kW,True,power,instantaneous,cnc,"Power draw of a machine axis, in kW."
-axes.x_temperature,,C,True,temperature,instantaneous,cnc,Temperature of a machine axis.
-axes.x_velocity,,,False,,instantaneous,cnc,Velocity of a machine axis.
-axes.x_velocity_commanded,,,False,,setpoint,cnc,Velocity of a machine axis.
-axes.x_voltage,,,False,,instantaneous,cnc,Voltage at a machine axis.
-axes.y_acceleration,,,False,,instantaneous,cnc,Ratio for a machine axis.
-axes.y_acceleration_commanded,,,False,,setpoint,cnc,Ratio for a machine axis.
-axes.y_current_amps,,,False,,instantaneous,cnc,Electrical current drawn by a machine axis.
-axes.y_following_error,,,False,,instantaneous,cnc,Reported value for y following error.
-axes.y_load_pct,float,%,True,percent,instantaneous,cnc,"Load on a machine axis, in %."
-axes.y_position,,,False,,instantaneous,cnc,Position of a machine axis.
-axes.y_position_actual,,mm,True,length,instantaneous,cnc,Position of a machine axis.
-axes.y_position_commanded,,mm,True,length,setpoint,cnc,Position of a machine axis.
-axes.y_power_kw,float,kW,True,power,instantaneous,cnc,"Power draw of a machine axis, in kW."
-axes.y_temperature,,C,True,temperature,instantaneous,cnc,Temperature of a machine axis.
-axes.y_velocity,,,False,,instantaneous,cnc,Velocity of a machine axis.
-axes.y_velocity_commanded,,,False,,setpoint,cnc,Velocity of a machine axis.
-axes.y_voltage,,,False,,instantaneous,cnc,Voltage at a machine axis.
-axes.z_acceleration,,,False,,instantaneous,cnc,Ratio for a machine axis.
-axes.z_acceleration_commanded,,,False,,setpoint,cnc,Ratio for a machine axis.
-axes.z_current_amps,,,False,,instantaneous,cnc,Electrical current drawn by a machine axis.
-axes.z_following_error,,,False,,instantaneous,cnc,Reported value for z following error.
-axes.z_load_pct,float,%,True,percent,instantaneous,cnc,"Load on a machine axis, in %."
-axes.z_position,,,False,,instantaneous,cnc,Position of a machine axis.
-axes.z_position_actual,,mm,True,length,instantaneous,cnc,Position of a machine axis.
-axes.z_position_commanded,,mm,True,length,setpoint,cnc,Position of a machine axis.
-axes.z_power_kw,float,kW,True,power,instantaneous,cnc,"Power draw of a machine axis, in kW."
-axes.z_temperature,,C,True,temperature,instantaneous,cnc,Temperature of a machine axis.
-axes.z_velocity,,,False,,instantaneous,cnc,Velocity of a machine axis.
-axes.z_velocity_commanded,,,False,,setpoint,cnc,Velocity of a machine axis.
-axes.z_voltage,,,False,,instantaneous,cnc,Voltage at a machine axis.
-axis_count,integer,,False,,cumulative,universal,Count of the machine.
-battery_voltage,,V,True,voltage,instantaneous,universal,Voltage at the battery.
-cnc.axis.load,,%,True,percent,instantaneous,cnc,Load on the machine.
-cnc.coolant.pressure,,,False,,instantaneous,cnc,Pressure in the coolant circuit.
-cnc.path.feedrate,,mm/min,True,linear_speed,instantaneous,cnc,Reported value for feedrate.
-cnc.spindle.rotary_velocity,,rpm,True,rotational,instantaneous,cnc,Velocity of the spindle.
-coolant_status,string,,False,,instantaneous,cnc,Reported value for coolant status.
-cutting_time_hours,float,h,True,time,instantaneous,universal,"Cumulative runtime of the machine, in h."
-cycle_count,integer,,False,,cumulative,universal,Count of the machine.
-cycle_time_ms,float,ms,False,time,instantaneous,universal,"Reported value for cycle time ms, in ms."
-cycle_time_seconds,float,s,False,time,instantaneous,universal,"Reported value for cycle time seconds, in s."
-dc_bus_voltage,,,False,,instantaneous,universal,Voltage at the machine.
-def_remaining_pct,float,%,True,percent,instantaneous,universal,"Reported value for def remaining pct, in %."
-door_status,string,,False,,instantaneous,universal,Reported value for door status.
-downtime_minutes,integer,min,False,time,cumulative,universal,"Reported value for downtime minutes, in min."
-emergency_stop_active,,,False,,instantaneous,universal,Reported value for emergency stop active.
-energy.cumulative_kwh,float,kWh,True,energy,cumulative,universal,"Reported value for cumulative kwh, in kWh."
-energy_kwh,float,kWh,True,energy,cumulative,universal,"Energy consumed by consumed energy, in kWh."
-engine_load_pct,float,%,True,percent,instantaneous,universal,"Load on the machine, in %."
-engine_speed_rpm,float,rpm,True,rotational,instantaneous,universal,"Speed of the machine, in rpm."
-execution_state,enum,,False,,instantaneous,universal,Reported state of the machine.
-feed_override_pct,float,%,True,percent,setpoint,cnc,"Operator override applied to the feed axis, in %."
-feed_rate,float,mm/min,True,linear_speed,instantaneous,cnc,Reported value for feed rate.
-feed_rate_actual,,mm/min,True,linear_speed,instantaneous,cnc,Reported value for feed rate actual.
-feed_rate_commanded,,mm/min,True,linear_speed,setpoint,cnc,Reported value for feed rate commanded.
-filament_used_cm3,,,False,,instantaneous,additive,Reported value for filament used cm3.
-filament_used_mm,,mm,True,length,instantaneous,additive,Reported value for filament used mm.
-fuel_consumed,,,False,,cumulative,universal,Reported value for fuel consumed.
-fuel_rate,,,False,,instantaneous,universal,Reported value for fuel rate.
-fuel_remaining_pct,float,%,True,percent,instantaneous,universal,"Reported value for fuel remaining pct, in %."
-ground_speed,,kph,True,vehicle_speed,instantaneous,universal,Speed of the machine.
-identity.controller_model,string,,False,,instantaneous,universal,Reported value for controller model.
-idle_hours,float,h,True,time,instantaneous,universal,"Cumulative runtime of the machine, in h."
-last_cycle_time_seconds,,s,False,time,instantaneous,universal,Reported value for last cycle time seconds.
-load_count,integer,,False,,cumulative,universal,Load on the machine.
-location_altitude,,mm,True,length,instantaneous,universal,Reported value for location altitude.
-location_latitude,,,False,,instantaneous,universal,Reported value for location latitude.
-location_longitude,,,False,,instantaneous,universal,Reported value for location longitude.
-machine_id,string,,False,,instantaneous,universal,Identifier of the machine.
-machine_mode,enum,,False,,instantaneous,universal,Reported value for machine mode.
-machine_state,string,,False,,instantaneous,universal,Reported state of the machine.
-machining_state,string,,False,,instantaneous,cnc,Reported state of the machine.
-maintenance_desc,string,,False,,instantaneous,universal,Reported value for maintenance desc.
-maintenance_type,string,,False,,instantaneous,universal,Reported value for maintenance type.
-max_axes,,,False,,instantaneous,universal,Reported value for max axes.
-metadata.accumulator_pressure,integer,bar,True,pressure,instantaneous,universal,Pressure in the machine.
-metadata.batch_id,string,,False,,instantaneous,universal,Identifier of the machine.
-metadata.cell_id,string,,False,,instantaneous,universal,Identifier of the machine.
-metadata.component,string,,False,,instantaneous,universal,Reported value for component.
-metadata.controller_model,string,,False,,instantaneous,universal,Reported value for controller model.
-metadata.cooler_condition,integer,%,True,percent,instantaneous,universal,Reported value for cooler condition.
-metadata.error_id,string,,False,,instantaneous,universal,Identifier of the machine.
-metadata.failure_mode_hdf,integer,,False,,instantaneous,universal,Reported value for failure mode hdf.
-metadata.failure_mode_osf,integer,,False,,instantaneous,universal,Reported value for failure mode osf.
-metadata.failure_mode_pwf,integer,,False,,instantaneous,universal,Reported value for failure mode pwf.
-metadata.failure_mode_rnf,integer,,False,,instantaneous,universal,Reported value for failure mode rnf.
-metadata.failure_mode_twf,integer,,False,,instantaneous,universal,Reported value for failure mode twf.
-metadata.line_id,string,,False,,instantaneous,universal,Identifier of the machine.
-metadata.machine_age,integer,,False,,instantaneous,universal,Reported value for machine age.
-metadata.machine_failure,boolean,,False,,instantaneous,universal,Reported value for machine failure.
-metadata.plant_id,string,,False,,instantaneous,universal,Identifier of the machine.
-metadata.product_quality,string,,False,,instantaneous,universal,Reported value for product quality.
-metadata.pump_leakage,integer,L/min,True,flow,instantaneous,universal,Reported value for pump leakage.
-metadata.technician_id,string,,False,,instantaneous,universal,Identifier of the machine.
-metadata.valve_condition,integer,%,True,percent,instantaneous,universal,Reported value for valve condition.
-model,string,,False,,instantaneous,universal,Reported value for model.
-motion_time_hours,float,h,True,time,instantaneous,universal,"Cumulative runtime of the machine, in h."
-odometer,,,False,,cumulative,universal,Reported value for odometer.
-operating_hours,float,h,True,time,cumulative,universal,"Cumulative runtime of the machine, in h."
-operational_settings.setting_1,float,,False,,instantaneous,universal,Reported value for setting 1.
-operational_settings.setting_2,float,,False,,instantaneous,universal,Reported value for setting 2.
-pallet_position,,,False,,instantaneous,universal,Position of the machine.
-part_count,integer,,False,,cumulative,universal,Count of the machine.
-parts_count,integer,,False,,cumulative,universal,Count of the machine.
-payload_kg,float,kg,True,mass,instantaneous,universal,"Load on the machine, in kg."
-payload_total,,kg,True,mass,cumulative,universal,Load on the machine.
-power.instantaneous_kw,float,kW,True,power,instantaneous,universal,"Reported value for instantaneous kw, in kW."
-power_on_hours,float,h,True,time,instantaneous,universal,"Cumulative runtime of electrical power, in h."
-print_time_remaining,,,False,,instantaneous,universal,Reported value for print time remaining.
-print_time_seconds,,s,False,time,instantaneous,universal,Reported value for print time seconds.
-program_id,integer,,False,,instantaneous,universal,Identifier of the machine.
-program_line_number,,,False,,instantaneous,universal,Reported value for program line number.
-program_name,string,,False,,instantaneous,universal,Identifier of the machine.
-program_number,,,False,,instantaneous,universal,Reported value for program number.
-program_runtime_seconds,,s,False,time,cumulative,universal,Reported value for program runtime seconds.
-progress_pct,float,%,True,percent,instantaneous,universal,"Completion progress of the machine, in %."
-rapid_override_pct,float,%,True,percent,setpoint,cnc,"Operator override applied to the machine, in %."
-robot.joint.current,,,False,,instantaneous,robotics,Electrical current drawn by a robot joint.
-robot.joint.effort,,Nm,True,torque,instantaneous,robotics,Reported value for effort.
-robot.joint.position,,,False,,instantaneous,robotics,Position of a robot joint.
-robot.joint.temperature,,,False,,instantaneous,robotics,Temperature of a robot joint.
-robot.joint.velocity,,,False,,instantaneous,robotics,Velocity of a robot joint.
-robot.mode,,,False,,instantaneous,robotics,Reported value for mode.
-robot.payload,,kg,True,mass,instantaneous,robotics,Load on the machine.
-robot.program.state,,,False,,instantaneous,robotics,Reported state of the machine.
-robot.safety.mode,,,False,,instantaneous,robotics,Reported value for mode.
-robot.safety.protective_stop,,,False,,instantaneous,robotics,Reported value for protective stop.
-robot.safety.status_bits,,,False,,instantaneous,robotics,Reported value for status bits.
-robot.speed_scaling,,,False,,instantaneous,robotics,Speed of the machine.
-robot.tcp.force,,,False,,instantaneous,robotics,Force applied by the robot tool centre point.
-robot.tcp.pose,,,False,,instantaneous,robotics,Reported value for pose.
-robot.tcp.speed,,,False,,instantaneous,robotics,Speed of the robot tool centre point.
-robot.tool.current,,,False,,instantaneous,robotics,Electrical current drawn by the machine.
-ros.battery_current,,,False,,instantaneous,robotics,Electrical current drawn by the battery.
-ros.battery_pct,float,%,True,percent,instantaneous,robotics,"Reported value for battery pct, in %."
-ros.battery_voltage,,,False,,instantaneous,robotics,Voltage at the battery.
-ros.camera_fps,,,False,,instantaneous,robotics,Reported value for camera fps.
-ros.cycle_count,integer,,False,,cumulative,robotics,Count of the machine.
-ros.end_effector_force,,,False,,instantaneous,robotics,Force applied by the machine.
-ros.end_effector_torque,,,False,,instantaneous,robotics,Torque on the machine.
-ros.error_code,string,,False,,instantaneous,robotics,Code reported by the machine.
-ros.error_description,string,,False,,instantaneous,robotics,Text description of the machine.
-ros.imu_drift_rate,,,False,,instantaneous,robotics,Reported value for imu drift rate.
-ros.joint_1_position,,,False,,instantaneous,robotics,Position of a robot joint.
-ros.joint_1_torque,,,False,,instantaneous,robotics,Torque on a robot joint.
-ros.joint_2_position,,,False,,instantaneous,robotics,Position of a robot joint.
-ros.joint_2_torque,,,False,,instantaneous,robotics,Torque on a robot joint.
-ros.joint_3_position,,,False,,instantaneous,robotics,Position of a robot joint.
-ros.joint_3_torque,,,False,,instantaneous,robotics,Torque on a robot joint.
-ros.joint_4_position,,,False,,instantaneous,robotics,Position of a robot joint.
-ros.joint_4_torque,,,False,,instantaneous,robotics,Torque on a robot joint.
-ros.joint_5_position,,,False,,instantaneous,robotics,Position of a robot joint.
-ros.joint_5_torque,,,False,,instantaneous,robotics,Torque on a robot joint.
-ros.joint_6_position,,,False,,instantaneous,robotics,Position of a robot joint.
-ros.joint_6_torque,,,False,,instantaneous,robotics,Torque on a robot joint.
-ros.lidar_point_density,,,False,,instantaneous,robotics,Identifier of the machine.
-ros.localization_confidence,,,False,,instantaneous,robotics,Identifier of the machine.
-ros.motor_temp_c,float,degC,True,temperature,instantaneous,robotics,"Temperature of the motor, in degC."
-ros.nav2_recovery_count,integer,,False,,cumulative,robotics,Count of the machine.
-ros.obstacle_distance_m,float,m,False,,cumulative,robotics,"Reported value for obstacle distance m, in m."
-ros.path_deviation_m,float,m,False,,instantaneous,robotics,"Reported value for path deviation m, in m."
-ros.payload_kg,float,kg,True,mass,instantaneous,robotics,"Load on the machine, in kg."
-ros.payload_utilization_pct,float,%,True,percent,instantaneous,robotics,"Load on the machine, in %."
-ros.sensor_quality_pct,float,%,True,percent,instantaneous,robotics,"Reported value for sensor quality pct, in %."
-ros.task_completion_rate,,%,True,percent,instantaneous,robotics,Reported value for task completion rate.
-ros.task_id,integer,,False,,instantaneous,robotics,Identifier of the machine.
-ros.task_status,string,,False,,instantaneous,robotics,Reported value for task status.
-ros.uptime_seconds,,s,False,time,cumulative,robotics,Reported value for uptime seconds.
-ros.wifi_signal_dbm,,,False,,instantaneous,robotics,Reported value for wifi signal dbm.
-sensor_readings.air_pressure,float,bar,True,pressure,instantaneous,universal,Pressure in the machine.
-sensor_readings.air_temperature,float,C,True,temperature,instantaneous,universal,Temperature of the machine.
-sensor_readings.ambient_temp,,C,True,temperature,instantaneous,universal,Temperature of the machine.
-sensor_readings.availability,enum,,True,percent,instantaneous,universal,Reported value for availability.
-sensor_readings.bad_parts,,,False,,instantaneous,universal,Reported value for bad parts.
-sensor_readings.bed_target,,,False,,setpoint,universal,Reported value for bed target.
-sensor_readings.bed_temp,,C,True,temperature,instantaneous,universal,Temperature of the print bed.
-sensor_readings.boom_angle,,,False,,instantaneous,universal,Reported value for boom angle.
-sensor_readings.bucket_load,,,False,,instantaneous,universal,Load on the machine.
-sensor_readings.chamber_target,,,False,,setpoint,universal,Reported value for chamber target.
-sensor_readings.chamber_temp,,C,True,temperature,instantaneous,universal,Temperature of the machine.
-sensor_readings.coolant_flow,float,L/min,True,flow,instantaneous,cnc,Flow rate through the coolant circuit.
-sensor_readings.coolant_level,,%,True,percent,instantaneous,cnc,Fill level of the coolant circuit.
-sensor_readings.coolant_pressure,,bar,True,pressure,instantaneous,cnc,Pressure in the coolant circuit.
-sensor_readings.coolant_temp,float,C,True,temperature,instantaneous,cnc,Temperature of the coolant circuit.
-sensor_readings.cooling_efficiency,float,%,True,percent,instantaneous,universal,Efficiency of the machine.
-sensor_readings.cooling_power,float,kW,True,power,instantaneous,universal,Power draw of electrical power.
-sensor_readings.core_speed_rpm,float,rpm,True,rotational,instantaneous,universal,"Speed of the machine, in rpm."
-sensor_readings.cycle_time,float,h,True,time,instantaneous,universal,Reported value for cycle time.
-sensor_readings.digital_input,boolean,,False,,instantaneous,universal,Reported value for digital input.
-sensor_readings.digital_output,boolean,,False,,instantaneous,universal,Reported value for digital output.
-sensor_readings.drive_temp,,C,True,temperature,instantaneous,universal,Temperature of the machine.
-sensor_readings.efficiency_factor,float,%,True,percent,instantaneous,universal,Efficiency of the machine.
-sensor_readings.fan_speed_rpm,float,rpm,True,rotational,instantaneous,universal,"Speed of the machine, in rpm."
-sensor_readings.good_parts,integer,,False,,instantaneous,universal,Reported value for good parts.
-sensor_readings.hotend2_target,,,False,,setpoint,additive,Reported value for hotend2 target.
-sensor_readings.hotend2_temp,,,False,,instantaneous,additive,Temperature of the hotend.
-sensor_readings.hotend_target,,,False,,setpoint,additive,Reported value for hotend target.
-sensor_readings.hotend_temp,,C,True,temperature,instantaneous,additive,Temperature of the hotend.
-sensor_readings.hydraulic_pressure,float,bar,True,pressure,instantaneous,universal,Pressure in the hydraulic system.
-sensor_readings.hydraulic_temp,,C,True,temperature,instantaneous,universal,Temperature of the hydraulic system.
-sensor_readings.implement_pressure,,,False,,instantaneous,universal,Pressure in the machine.
-sensor_readings.intake_temp,,C,True,temperature,instantaneous,universal,Temperature of the machine.
-sensor_readings.motor_power,float,kW,True,power,instantaneous,universal,Power draw of the motor.
-sensor_readings.motor_temp,,C,True,temperature,instantaneous,universal,Temperature of the motor.
-sensor_readings.oee,float,%,True,percent,instantaneous,universal,Reported value for oee.
-sensor_readings.oil_pressure,,bar,True,pressure,instantaneous,universal,Pressure in the lubrication system.
-sensor_readings.oil_temp,,C,True,temperature,instantaneous,universal,Temperature of the lubrication system.
-sensor_readings.performance,float,%,True,percent,instantaneous,universal,Reported value for performance.
-sensor_readings.planned_downtime,integer,h,True,time,cumulative,universal,Reported value for planned downtime.
-sensor_readings.power_consumption,float,kW,True,power,instantaneous,universal,Power draw of electrical power.
-sensor_readings.pressure,float,bar,True,pressure,instantaneous,universal,Pressure in the machine.
-sensor_readings.pressure_1,float,bar,True,pressure,instantaneous,universal,Pressure in the machine.
-sensor_readings.pressure_2,float,bar,True,pressure,instantaneous,universal,Pressure in the machine.
-sensor_readings.pressure_3,float,bar,True,pressure,instantaneous,universal,Pressure in the machine.
-sensor_readings.pressure_4,float,bar,True,pressure,instantaneous,universal,Pressure in the machine.
-sensor_readings.pressure_5,float,bar,True,pressure,instantaneous,universal,Pressure in the machine.
-sensor_readings.pressure_6,float,bar,True,pressure,instantaneous,universal,Pressure in the machine.
-sensor_readings.pressure_fan_inlet,float,bar,True,pressure,instantaneous,universal,Pressure in the machine.
-sensor_readings.process_temperature,float,C,True,temperature,instantaneous,universal,Temperature of the machine.
-sensor_readings.quality_rate,float,%,True,percent,instantaneous,universal,Reported value for quality rate.
-sensor_readings.register_value,float,,False,,instantaneous,universal,Reported value for register value.
-sensor_readings.reject_parts,integer,,False,,instantaneous,universal,Reported value for reject parts.
-sensor_readings.rotate,float,rpm,True,rotational,instantaneous,universal,Reported value for rotate.
-sensor_readings.speed_override,integer,%,True,percent,setpoint,universal,Speed of the machine.
-sensor_readings.tcp_speed,float,mm/min,True,linear_speed,instantaneous,robotics,Speed of the robot tool centre point.
-sensor_readings.temperature_1,float,C,True,temperature,instantaneous,universal,Temperature of the machine.
-sensor_readings.temperature_2,float,C,True,temperature,instantaneous,universal,Temperature of the machine.
-sensor_readings.temperature_3,float,C,True,temperature,instantaneous,universal,Temperature of the machine.
-sensor_readings.temperature_4,float,C,True,temperature,instantaneous,universal,Temperature of the machine.
-sensor_readings.tool_wear,integer,,False,,instantaneous,universal,Reported value for tool wear.
-sensor_readings.torque,float,Nm,True,torque,instantaneous,universal,Torque on the machine.
-sensor_readings.total_temp_hpc_outlet,float,C,True,temperature,cumulative,universal,Temperature of the machine.
-sensor_readings.total_temp_lpc_outlet,float,C,True,temperature,cumulative,universal,Temperature of the machine.
-sensor_readings.total_temp_lpt_outlet,float,C,True,temperature,cumulative,universal,Temperature of the machine.
-sensor_readings.transmission_temp,,C,True,temperature,instantaneous,universal,Temperature of the machine.
-sensor_readings.unplanned_downtime,integer,h,True,time,cumulative,universal,Reported value for unplanned downtime.
-sensor_readings.vibration,float,,False,,instantaneous,universal,Vibration measured on measured vibration.
-sensor_readings.vibration_1,float,,False,,instantaneous,universal,Vibration measured on measured vibration.
-sensor_readings.vibration_score,,,False,,instantaneous,universal,Vibration measured on measured vibration.
-sensor_readings.vibration_x,float,,False,,instantaneous,universal,Vibration measured on measured vibration.
-sensor_readings.volt,float,V,True,voltage,instantaneous,universal,Reported value for volt.
-sensor_readings.voltage,integer,V,True,voltage,instantaneous,universal,Voltage at the machine.
-sensor_readings.volume_flow_1,float,L/min,True,flow,instantaneous,universal,Flow rate through the machine.
-sensor_readings.volume_flow_2,float,L/min,True,flow,instantaneous,universal,Flow rate through the machine.
-sequence_number,,,False,,instantaneous,universal,Reported value for sequence number.
-serial_number,string,,False,,instantaneous,universal,Reported value for serial number.
-service_hours_remaining,,,False,,instantaneous,universal,Cumulative runtime of the machine.
-service_meter_hours,float,h,True,time,instantaneous,universal,"Cumulative runtime of the machine, in h."
-spindle_current_amps,,,False,,instantaneous,cnc,Electrical current drawn by the spindle.
-spindle_inertia,,,False,,instantaneous,cnc,Reported value for spindle inertia.
-spindle_load_pct,float,%,True,percent,instantaneous,cnc,"Load on the spindle, in %."
-spindle_override_pct,float,%,True,percent,setpoint,cnc,"Operator override applied to the spindle, in %."
-spindle_position,,,False,,instantaneous,cnc,Position of the spindle.
-spindle_power_kw,float,kW,True,power,instantaneous,cnc,"Power draw of the spindle, in kW."
-spindle_speed_commanded,,rpm,True,rotational,setpoint,cnc,Speed of the spindle.
-spindle_speed_rpm,integer,rpm,True,rotational,instantaneous,cnc,"Speed of the spindle, in rpm."
-spindle_temperature,,,False,,instantaneous,cnc,Temperature of the spindle.
-spindle_voltage,,,False,,instantaneous,cnc,Voltage at the spindle.
-timestamp,string,,False,,instantaneous,universal,Reported value for timestamp.
-tool_condition,,,False,,instantaneous,cnc,Reported value for tool condition.
-tool_id,string,,False,,instantaneous,cnc,Identifier of the active tool.
-tool_life_remaining,,,False,,cumulative,cnc,Reported value for tool life remaining.
-tool_life_used,,%,True,percent,cumulative,cnc,Reported value for tool life used.
-tool_number,,,False,,instantaneous,cnc,Reported value for tool number.
-vehicle.acceleration_x,,,False,,instantaneous,vehicle,Ratio for the vehicle.
-vehicle.acceleration_y,,,False,,instantaneous,vehicle,Ratio for the vehicle.
-vehicle.acceleration_z,,,False,,instantaneous,vehicle,Ratio for the vehicle.
-vehicle.air_inlet_temp,,,False,,instantaneous,vehicle,Temperature of the vehicle.
-vehicle.ambient.air_temp,,,False,,instantaneous,vehicle,Temperature of the vehicle.
-vehicle.ambient.barometric_pressure,,bar,True,pressure,instantaneous,vehicle,Pressure in the vehicle.
-vehicle.autonomy_level,,,False,,instantaneous,vehicle,Fill level of the vehicle.
-vehicle.battery_soc_pct,float,%,True,percent,instantaneous,vehicle,"Reported value for battery soc pct, in %."
-vehicle.battery_temp_c,float,degC,True,temperature,instantaneous,vehicle,"Temperature of the vehicle, in degC."
-vehicle.brake.air_pressure,,,False,,instantaneous,vehicle,Pressure in the vehicle.
-vehicle.brake.primary_air_pressure,,,False,,instantaneous,vehicle,Pressure in the vehicle.
-vehicle.brake.secondary_air_pressure,,,False,,instantaneous,vehicle,Pressure in the vehicle.
-vehicle.brake_pressure_pct,float,%,True,percent,instantaneous,vehicle,"Pressure in the vehicle, in %."
-vehicle.camera_fps,,,False,,instantaneous,vehicle,Reported value for camera fps.
-vehicle.dtc_code,string,,False,,instantaneous,vehicle,Code reported by the vehicle.
-vehicle.dtc_description,string,,False,,instantaneous,vehicle,Text description of the vehicle.
-vehicle.engine.actual_torque_pct,float,%,True,percent,instantaneous,vehicle,"Torque on the vehicle, in %."
-vehicle.engine.demand_torque_pct,float,%,True,percent,instantaneous,vehicle,"Torque on the vehicle, in %."
-vehicle.engine.exhaust_gas_temp,,,False,,instantaneous,vehicle,Temperature of the vehicle.
-vehicle.engine.fuel_rail_pressure,,bar,True,pressure,instantaneous,vehicle,Pressure in the vehicle.
-vehicle.engine.fuel_rate,,,False,,instantaneous,vehicle,Reported value for fuel rate.
-vehicle.engine.intake_manifold_pressure,,,False,,instantaneous,vehicle,Pressure in the vehicle.
-vehicle.engine.intake_manifold_temp,,,False,,instantaneous,vehicle,Temperature of the vehicle.
-vehicle.engine.load,,%,True,percent,instantaneous,vehicle,Load on the vehicle.
-vehicle.engine.oil_pressure,,bar,True,pressure,instantaneous,vehicle,Pressure in the lubrication system.
-vehicle.engine.oil_temp,,,False,,instantaneous,vehicle,Temperature of the lubrication system.
-vehicle.engine.throttle_position,,%,True,percent,instantaneous,vehicle,Position of the vehicle.
-vehicle.engine_rpm,float,rpm,True,rotational,instantaneous,vehicle,"Reported value for engine rpm, in rpm."
-vehicle.engine_temp_c,float,degC,True,temperature,instantaneous,vehicle,"Temperature of the vehicle, in degC."
-vehicle.fuel_level_pct,float,%,True,percent,instantaneous,vehicle,"Fill level of the vehicle, in %."
-vehicle.gps_altitude_m,float,m,False,,instantaneous,vehicle,"Reported value for gps altitude m, in m."
-vehicle.gps_latitude,,,False,,instantaneous,vehicle,Reported value for gps latitude.
-vehicle.gps_longitude,,,False,,instantaneous,vehicle,Reported value for gps longitude.
-vehicle.gyro_x,,,False,,instantaneous,vehicle,Reported value for gyro x.
-vehicle.gyro_y,,,False,,instantaneous,vehicle,Reported value for gyro y.
-vehicle.gyro_z,,,False,,instantaneous,vehicle,Reported value for gyro z.
-vehicle.harsh_accel_event,,,False,,instantaneous,vehicle,Reported value for harsh accel event.
-vehicle.harsh_brake_event,,,False,,instantaneous,vehicle,Reported value for harsh brake event.
-vehicle.harsh_cornering_event,,,False,,instantaneous,vehicle,Reported value for harsh cornering event.
-vehicle.heading_deg,float,deg,False,,instantaneous,vehicle,"Reported value for heading deg, in deg."
-vehicle.idle_duration_seconds,,s,False,time,instantaneous,vehicle,Ratio for the vehicle.
-vehicle.intervention_event,,,False,,instantaneous,vehicle,Reported value for intervention event.
-vehicle.lane_deviation_m,float,m,False,,instantaneous,vehicle,"Reported value for lane deviation m, in m."
-vehicle.lidar_point_count,integer,,False,,cumulative,vehicle,Count of the vehicle.
-vehicle.obstacle_distance_m,float,m,False,,cumulative,vehicle,"Reported value for obstacle distance m, in m."
-vehicle.odometer_km,,,False,,cumulative,vehicle,Reported value for odometer km.
-vehicle.radar_target_count,integer,,False,,setpoint,vehicle,Count of the vehicle.
-vehicle.speed_kmh,,kph,True,vehicle_speed,instantaneous,vehicle,Speed of the vehicle.
-vehicle.speed_mph,,mph,False,vehicle_speed,instantaneous,vehicle,Speed of the vehicle.
-vehicle.steering_angle_deg,float,deg,False,,instantaneous,vehicle,"Reported value for steering angle deg, in deg."
-vehicle.throttle_pct,float,%,True,percent,instantaneous,vehicle,"Reported value for throttle pct, in %."
-vehicle.tire_pressure_fl,,bar,True,pressure,instantaneous,vehicle,Pressure in the vehicle.
-vehicle.tire_pressure_fr,,bar,True,pressure,instantaneous,vehicle,Pressure in the vehicle.
-vehicle.tire_pressure_rl,,bar,True,pressure,instantaneous,vehicle,Pressure in the vehicle.
-vehicle.tire_pressure_rr,,bar,True,pressure,instantaneous,vehicle,Pressure in the vehicle.
-vehicle.transmission.oil_temp,,,False,,instantaneous,vehicle,Temperature of the lubrication system.
-vehicle.transmission_gear,,,False,,instantaneous,vehicle,Reported value for transmission gear.
-vehicle.trip_distance_km,,,False,,cumulative,vehicle,Reported value for trip distance km.
-vehicle.turbocharger.rpm,,rpm,True,rotational,instantaneous,vehicle,Reported value for rpm.
-vehicle.v2x_message_count,integer,,False,,cumulative,vehicle,Count of the vehicle.
-vehicle.wheel_speed_fl,,rpm,True,rotational,instantaneous,vehicle,Speed of the vehicle.
-vehicle.wheel_speed_fr,,rpm,True,rotational,instantaneous,vehicle,Speed of the vehicle.
-vehicle.wheel_speed_rl,,rpm,True,rotational,instantaneous,vehicle,Speed of the vehicle.
-vehicle.wheel_speed_rr,,rpm,True,rotational,instantaneous,vehicle,Speed of the vehicle.
-vibration.rms,,,False,,instantaneous,universal,Reported value for rms.
-workholding_pressure,,bar,True,pressure,instantaneous,cnc,Pressure in the machine.
+field,provenance,type,unit,si,quantity,measurement_type,vertical,mapping_count,description
+alarm_code,corpus,string,,False,,instantaneous,universal,218,Code reported by the active alarm.
+alarm_description,corpus,string,,False,,instantaneous,universal,179,Text description of the active alarm.
+alarm_severity,corpus,string,,False,,instantaneous,universal,155,Severity of the active alarm.
+alarm_severity.alarm_group,corpus,string,,False,,instantaneous,universal,114,Reported value for alarm group.
+alarm_severity.axis_number,corpus,string,,False,,instantaneous,universal,111,Reported value for axis number.
+amr.battery.charge,corpus,,%,True,percent,instantaneous,amr,6,Reported value for charge.
+amr.battery.charging,corpus,,,False,,instantaneous,amr,5,Reported value for charging.
+amr.battery.voltage,corpus,,,False,,instantaneous,amr,5,Voltage at the battery.
+amr.operating_mode,corpus,enum,,False,,instantaneous,amr,4,Reported value for operating mode.
+amr.position.theta,corpus,,,False,,instantaneous,amr,6,Reported value for theta.
+amr.position.x,corpus,,,False,,instantaneous,amr,5,Reported value for x.
+amr.position.y,corpus,,,False,,instantaneous,amr,5,Reported value for y.
+amr.safety.estop,corpus,,,False,,instantaneous,amr,4,Reported value for estop.
+amr.velocity.angular,corpus,,,False,,instantaneous,amr,5,Reported value for angular.
+amr.velocity.linear,corpus,,,False,,instantaneous,amr,5,Reported value for linear.
+axes.0.load_percent,corpus,float,%,True,percent,instantaneous,cnc,215,"Load on a machine axis, in %."
+axes.0.position_actual,corpus,float,mm,True,length,instantaneous,cnc,232,Position of a machine axis.
+axes.0.temperature_c,corpus,float,degC,True,temperature,instantaneous,cnc,222,"Temperature of a machine axis, in degC."
+axes.1.position_actual,corpus,float,mm,True,length,instantaneous,cnc,211,Position of a machine axis.
+axes.2.position_actual,corpus,float,mm,True,length,instantaneous,cnc,203,Position of a machine axis.
+axes.a_load_pct,corpus,float,%,True,percent,instantaneous,cnc,3,"Load on a machine axis, in %."
+axes.a_position_actual,corpus,,,False,,instantaneous,cnc,1,Position of a machine axis.
+axes.b_load_pct,corpus,float,%,True,percent,instantaneous,cnc,3,"Load on a machine axis, in %."
+axes.b_position_actual,corpus,,,False,,instantaneous,cnc,1,Position of a machine axis.
+axes.c_load_pct,corpus,float,%,True,percent,instantaneous,cnc,1,"Load on a machine axis, in %."
+axes.c_position_actual,corpus,,,False,,instantaneous,cnc,1,Position of a machine axis.
+axes.x_acceleration,corpus,,,False,,instantaneous,cnc,5,Ratio for a machine axis.
+axes.x_acceleration_commanded,corpus,,,False,,setpoint,cnc,5,Ratio for a machine axis.
+axes.x_current,corpus,,,False,,instantaneous,cnc,2,Electrical current drawn by a machine axis.
+axes.x_current_amps,corpus,,,False,,instantaneous,cnc,7,Electrical current drawn by a machine axis.
+axes.x_following_error,corpus,,,False,,instantaneous,cnc,1,Reported value for x following error.
+axes.x_load_pct,corpus,float,%,True,percent,instantaneous,cnc,58,"Load on a machine axis, in %."
+axes.x_position,corpus,,,False,,instantaneous,cnc,9,Position of a machine axis.
+axes.x_position_actual,corpus,,mm,True,length,instantaneous,cnc,53,Position of a machine axis.
+axes.x_position_commanded,corpus,,mm,True,length,setpoint,cnc,49,Position of a machine axis.
+axes.x_power_kw,corpus,float,kW,True,power,instantaneous,cnc,7,"Power draw of a machine axis, in kW."
+axes.x_temperature,corpus,,C,True,temperature,instantaneous,cnc,31,Temperature of a machine axis.
+axes.x_velocity,corpus,,,False,,instantaneous,cnc,7,Velocity of a machine axis.
+axes.x_velocity_commanded,corpus,,,False,,setpoint,cnc,6,Velocity of a machine axis.
+axes.x_voltage,corpus,,,False,,instantaneous,cnc,7,Voltage at a machine axis.
+axes.y_acceleration,corpus,,,False,,instantaneous,cnc,5,Ratio for a machine axis.
+axes.y_acceleration_commanded,corpus,,,False,,setpoint,cnc,5,Ratio for a machine axis.
+axes.y_current_amps,corpus,,,False,,instantaneous,cnc,7,Electrical current drawn by a machine axis.
+axes.y_following_error,corpus,,,False,,instantaneous,cnc,1,Reported value for y following error.
+axes.y_load_pct,corpus,float,%,True,percent,instantaneous,cnc,60,"Load on a machine axis, in %."
+axes.y_position,corpus,,,False,,instantaneous,cnc,9,Position of a machine axis.
+axes.y_position_actual,corpus,,mm,True,length,instantaneous,cnc,52,Position of a machine axis.
+axes.y_position_commanded,corpus,,mm,True,length,setpoint,cnc,37,Position of a machine axis.
+axes.y_power_kw,corpus,float,kW,True,power,instantaneous,cnc,7,"Power draw of a machine axis, in kW."
+axes.y_temperature,corpus,,C,True,temperature,instantaneous,cnc,31,Temperature of a machine axis.
+axes.y_velocity,corpus,,,False,,instantaneous,cnc,7,Velocity of a machine axis.
+axes.y_velocity_commanded,corpus,,,False,,setpoint,cnc,6,Velocity of a machine axis.
+axes.y_voltage,corpus,,,False,,instantaneous,cnc,7,Voltage at a machine axis.
+axes.z_acceleration,corpus,,,False,,instantaneous,cnc,5,Ratio for a machine axis.
+axes.z_acceleration_commanded,corpus,,,False,,setpoint,cnc,5,Ratio for a machine axis.
+axes.z_current_amps,corpus,,,False,,instantaneous,cnc,7,Electrical current drawn by a machine axis.
+axes.z_following_error,corpus,,,False,,instantaneous,cnc,1,Reported value for z following error.
+axes.z_load_pct,corpus,float,%,True,percent,instantaneous,cnc,60,"Load on a machine axis, in %."
+axes.z_position,corpus,,,False,,instantaneous,cnc,9,Position of a machine axis.
+axes.z_position_actual,corpus,,mm,True,length,instantaneous,cnc,52,Position of a machine axis.
+axes.z_position_commanded,corpus,,mm,True,length,setpoint,cnc,37,Position of a machine axis.
+axes.z_power_kw,corpus,float,kW,True,power,instantaneous,cnc,7,"Power draw of a machine axis, in kW."
+axes.z_temperature,corpus,,C,True,temperature,instantaneous,cnc,31,Temperature of a machine axis.
+axes.z_velocity,corpus,,,False,,instantaneous,cnc,7,Velocity of a machine axis.
+axes.z_velocity_commanded,corpus,,,False,,setpoint,cnc,6,Velocity of a machine axis.
+axes.z_voltage,corpus,,,False,,instantaneous,cnc,7,Voltage at a machine axis.
+axis_count,corpus,integer,,False,,cumulative,universal,1,Count of the machine.
+battery_voltage,corpus,,V,True,voltage,instantaneous,universal,46,Voltage at the battery.
+cnc.axis.load,corpus,,%,True,percent,instantaneous,cnc,6,Load on the machine.
+cnc.coolant.pressure,corpus,,,False,,instantaneous,cnc,6,Pressure in the coolant circuit.
+cnc.path.feedrate,corpus,,mm/min,True,linear_speed,instantaneous,cnc,9,Reported value for feedrate.
+cnc.spindle.rotary_velocity,corpus,,rpm,True,rotational,instantaneous,cnc,4,Velocity of the spindle.
+coolant_status,corpus,string,,False,,instantaneous,cnc,6,Reported value for coolant status.
+cutting_time_hours,corpus,float,h,True,time,instantaneous,universal,42,"Cumulative runtime of the machine, in h."
+cycle_count,corpus,integer,,False,,cumulative,universal,37,Count of the machine.
+cycle_time_ms,corpus,float,ms,False,time,instantaneous,universal,6,"Reported value for cycle time ms, in ms."
+cycle_time_seconds,corpus,float,s,False,time,instantaneous,universal,60,"Reported value for cycle time seconds, in s."
+dc_bus_voltage,corpus,,,False,,instantaneous,universal,7,Voltage at the machine.
+def_remaining_pct,corpus,float,%,True,percent,instantaneous,universal,57,"Reported value for def remaining pct, in %."
+door_status,corpus,string,,False,,instantaneous,universal,50,Reported value for door status.
+downtime_minutes,corpus,integer,min,False,time,cumulative,universal,151,"Reported value for downtime minutes, in min."
+emergency_stop_active,corpus,,,False,,instantaneous,universal,41,Reported value for emergency stop active.
+energy.cumulative_kwh,corpus,float,kWh,True,energy,cumulative,universal,9,"Reported value for cumulative kwh, in kWh."
+energy_kwh,corpus,float,kWh,True,energy,cumulative,universal,226,"Energy consumed by consumed energy, in kWh."
+engine_load_pct,corpus,float,%,True,percent,instantaneous,universal,34,"Load on the machine, in %."
+engine_speed_rpm,corpus,float,rpm,True,rotational,instantaneous,universal,52,"Speed of the machine, in rpm."
+execution_state,corpus,enum,,False,,instantaneous,universal,152,Reported state of the machine.
+feed_override_pct,corpus,float,%,True,percent,setpoint,cnc,43,"Operator override applied to the feed axis, in %."
+feed_rate,corpus,float,mm/min,True,linear_speed,instantaneous,cnc,215,Reported value for feed rate.
+feed_rate_actual,corpus,,mm/min,True,linear_speed,instantaneous,cnc,61,Reported value for feed rate actual.
+feed_rate_commanded,corpus,,mm/min,True,linear_speed,setpoint,cnc,49,Reported value for feed rate commanded.
+filament_used_cm3,corpus,,,False,,instantaneous,additive,1,Reported value for filament used cm3.
+filament_used_mm,corpus,,mm,True,length,instantaneous,additive,1,Reported value for filament used mm.
+fuel_consumed,corpus,,,False,,cumulative,universal,56,Reported value for fuel consumed.
+fuel_rate,corpus,,,False,,instantaneous,universal,45,Reported value for fuel rate.
+fuel_remaining_pct,corpus,float,%,True,percent,instantaneous,universal,45,"Reported value for fuel remaining pct, in %."
+ground_speed,corpus,,kph,True,vehicle_speed,instantaneous,universal,54,Speed of the machine.
+identity.controller_model,corpus,string,,False,,instantaneous,universal,6,Reported value for controller model.
+idle_hours,corpus,float,h,True,time,instantaneous,universal,43,"Cumulative runtime of the machine, in h."
+last_cycle_time_seconds,corpus,,s,False,time,instantaneous,universal,1,Reported value for last cycle time seconds.
+load_count,corpus,integer,,False,,cumulative,universal,37,Load on the machine.
+location_altitude,corpus,,mm,True,length,instantaneous,universal,40,Reported value for location altitude.
+location_latitude,corpus,,,False,,instantaneous,universal,35,Reported value for location latitude.
+location_longitude,corpus,,,False,,instantaneous,universal,43,Reported value for location longitude.
+machine_id,corpus,string,,False,,instantaneous,universal,117,Identifier of the machine.
+machine_mode,corpus,enum,,False,,instantaneous,universal,38,Reported value for machine mode.
+machine_state,corpus,string,,False,,instantaneous,universal,57,Reported state of the machine.
+machining_state,corpus,string,,False,,instantaneous,cnc,9,Reported state of the machine.
+maintenance_desc,corpus,string,,False,,instantaneous,universal,122,Reported value for maintenance desc.
+maintenance_type,corpus,string,,False,,instantaneous,universal,105,Reported value for maintenance type.
+max_axes,corpus,,,False,,instantaneous,universal,1,Reported value for max axes.
+metadata.accumulator_pressure,corpus,integer,bar,True,pressure,instantaneous,universal,80,Pressure in the machine.
+metadata.batch_id,corpus,string,,False,,instantaneous,universal,115,Identifier of the machine.
+metadata.cell_id,corpus,string,,False,,instantaneous,universal,116,Identifier of the machine.
+metadata.component,corpus,string,,False,,instantaneous,universal,80,Reported value for component.
+metadata.controller_model,corpus,string,,False,,instantaneous,universal,153,Reported value for controller model.
+metadata.cooler_condition,corpus,integer,%,True,percent,instantaneous,universal,80,Reported value for cooler condition.
+metadata.error_id,corpus,string,,False,,instantaneous,universal,74,Identifier of the machine.
+metadata.failure_mode_hdf,corpus,integer,,False,,instantaneous,universal,58,Reported value for failure mode hdf.
+metadata.failure_mode_osf,corpus,integer,,False,,instantaneous,universal,58,Reported value for failure mode osf.
+metadata.failure_mode_pwf,corpus,integer,,False,,instantaneous,universal,46,Reported value for failure mode pwf.
+metadata.failure_mode_rnf,corpus,integer,,False,,instantaneous,universal,46,Reported value for failure mode rnf.
+metadata.failure_mode_twf,corpus,integer,,False,,instantaneous,universal,46,Reported value for failure mode twf.
+metadata.line_id,corpus,string,,False,,instantaneous,universal,87,Identifier of the machine.
+metadata.machine_age,corpus,integer,,False,,instantaneous,universal,80,Reported value for machine age.
+metadata.machine_failure,corpus,boolean,,False,,instantaneous,universal,80,Reported value for machine failure.
+metadata.plant_id,corpus,string,,False,,instantaneous,universal,115,Identifier of the machine.
+metadata.product_quality,corpus,string,,False,,instantaneous,universal,80,Reported value for product quality.
+metadata.pump_leakage,corpus,integer,L/min,True,flow,instantaneous,universal,80,Reported value for pump leakage.
+metadata.technician_id,corpus,string,,False,,instantaneous,universal,108,Identifier of the machine.
+metadata.valve_condition,corpus,integer,%,True,percent,instantaneous,universal,80,Reported value for valve condition.
+model,corpus,string,,False,,instantaneous,universal,142,Reported value for model.
+motion_time_hours,corpus,float,h,True,time,instantaneous,universal,52,"Cumulative runtime of the machine, in h."
+odometer,corpus,,,False,,cumulative,universal,44,Reported value for odometer.
+operating_hours,corpus,float,h,True,time,cumulative,universal,227,"Cumulative runtime of the machine, in h."
+operational_settings.setting_1,corpus,float,,False,,instantaneous,universal,88,Reported value for setting 1.
+operational_settings.setting_2,corpus,float,,False,,instantaneous,universal,89,Reported value for setting 2.
+pallet_position,corpus,,,False,,instantaneous,universal,7,Position of the machine.
+part_count,corpus,integer,,False,,cumulative,universal,212,Count of the machine.
+parts_count,corpus,integer,,False,,cumulative,universal,68,Count of the machine.
+payload_kg,corpus,float,kg,True,mass,instantaneous,universal,153,"Load on the machine, in kg."
+payload_total,corpus,,kg,True,mass,cumulative,universal,55,Load on the machine.
+power.instantaneous_kw,corpus,float,kW,True,power,instantaneous,universal,12,"Reported value for instantaneous kw, in kW."
+power_on_hours,corpus,float,h,True,time,instantaneous,universal,67,"Cumulative runtime of electrical power, in h."
+print_time_remaining,corpus,,,False,,instantaneous,universal,1,Reported value for print time remaining.
+print_time_seconds,corpus,,s,False,time,instantaneous,universal,1,Reported value for print time seconds.
+program_id,corpus,integer,,False,,instantaneous,universal,62,Identifier of the machine.
+program_line_number,corpus,,,False,,instantaneous,universal,40,Reported value for program line number.
+program_name,corpus,string,,False,,instantaneous,universal,118,Identifier of the machine.
+program_number,corpus,,,False,,instantaneous,universal,9,Reported value for program number.
+program_runtime_seconds,corpus,,s,False,time,cumulative,universal,6,Reported value for program runtime seconds.
+progress_pct,corpus,float,%,True,percent,instantaneous,universal,1,"Completion progress of the machine, in %."
+rapid_override_pct,corpus,float,%,True,percent,setpoint,cnc,44,"Operator override applied to the machine, in %."
+robot.joint.current,corpus,,,False,,instantaneous,robotics,12,Electrical current drawn by a robot joint.
+robot.joint.effort,corpus,,Nm,True,torque,instantaneous,robotics,18,Reported value for effort.
+robot.joint.position,corpus,,,False,,instantaneous,robotics,33,Position of a robot joint.
+robot.joint.temperature,corpus,,,False,,instantaneous,robotics,18,Temperature of a robot joint.
+robot.joint.velocity,corpus,,,False,,instantaneous,robotics,11,Velocity of a robot joint.
+robot.mode,corpus,,,False,,instantaneous,robotics,12,Reported value for mode.
+robot.payload,corpus,,kg,True,mass,instantaneous,robotics,7,Load on the machine.
+robot.program.state,corpus,,,False,,instantaneous,robotics,10,Reported state of the machine.
+robot.safety.mode,corpus,,,False,,instantaneous,robotics,7,Reported value for mode.
+robot.safety.protective_stop,corpus,,,False,,instantaneous,robotics,14,Reported value for protective stop.
+robot.safety.status_bits,corpus,,,False,,instantaneous,robotics,5,Reported value for status bits.
+robot.speed_scaling,corpus,,,False,,instantaneous,robotics,8,Speed of the machine.
+robot.tcp.force,corpus,,,False,,instantaneous,robotics,6,Force applied by the robot tool centre point.
+robot.tcp.pose,corpus,,,False,,instantaneous,robotics,24,Reported value for pose.
+robot.tcp.speed,corpus,,,False,,instantaneous,robotics,15,Speed of the robot tool centre point.
+robot.tool.current,corpus,,,False,,instantaneous,robotics,7,Electrical current drawn by the machine.
+ros.battery_current,corpus,,,False,,instantaneous,robotics,6,Electrical current drawn by the battery.
+ros.battery_pct,corpus,float,%,True,percent,instantaneous,robotics,7,"Reported value for battery pct, in %."
+ros.battery_voltage,corpus,,,False,,instantaneous,robotics,6,Voltage at the battery.
+ros.camera_fps,corpus,,,False,,instantaneous,robotics,5,Reported value for camera fps.
+ros.cycle_count,corpus,integer,,False,,cumulative,robotics,5,Count of the machine.
+ros.end_effector_force,corpus,,,False,,instantaneous,robotics,5,Force applied by the machine.
+ros.end_effector_torque,corpus,,,False,,instantaneous,robotics,6,Torque on the machine.
+ros.error_code,corpus,string,,False,,instantaneous,robotics,4,Code reported by the machine.
+ros.error_description,corpus,string,,False,,instantaneous,robotics,5,Text description of the machine.
+ros.imu_drift_rate,corpus,,,False,,instantaneous,robotics,5,Reported value for imu drift rate.
+ros.joint_1_position,corpus,,,False,,instantaneous,robotics,6,Position of a robot joint.
+ros.joint_1_torque,corpus,,,False,,instantaneous,robotics,6,Torque on a robot joint.
+ros.joint_2_position,corpus,,,False,,instantaneous,robotics,6,Position of a robot joint.
+ros.joint_2_torque,corpus,,,False,,instantaneous,robotics,6,Torque on a robot joint.
+ros.joint_3_position,corpus,,,False,,instantaneous,robotics,6,Position of a robot joint.
+ros.joint_3_torque,corpus,,,False,,instantaneous,robotics,6,Torque on a robot joint.
+ros.joint_4_position,corpus,,,False,,instantaneous,robotics,6,Position of a robot joint.
+ros.joint_4_torque,corpus,,,False,,instantaneous,robotics,6,Torque on a robot joint.
+ros.joint_5_position,corpus,,,False,,instantaneous,robotics,6,Position of a robot joint.
+ros.joint_5_torque,corpus,,,False,,instantaneous,robotics,6,Torque on a robot joint.
+ros.joint_6_position,corpus,,,False,,instantaneous,robotics,6,Position of a robot joint.
+ros.joint_6_torque,corpus,,,False,,instantaneous,robotics,6,Torque on a robot joint.
+ros.lidar_point_density,corpus,,,False,,instantaneous,robotics,5,Identifier of the machine.
+ros.localization_confidence,corpus,,,False,,instantaneous,robotics,6,Identifier of the machine.
+ros.motor_temp_c,corpus,float,degC,True,temperature,instantaneous,robotics,7,"Temperature of the motor, in degC."
+ros.nav2_recovery_count,corpus,integer,,False,,cumulative,robotics,6,Count of the machine.
+ros.obstacle_distance_m,corpus,float,m,False,,cumulative,robotics,4,"Reported value for obstacle distance m, in m."
+ros.path_deviation_m,corpus,float,m,False,,instantaneous,robotics,5,"Reported value for path deviation m, in m."
+ros.payload_kg,corpus,float,kg,True,mass,instantaneous,robotics,5,"Load on the machine, in kg."
+ros.payload_utilization_pct,corpus,float,%,True,percent,instantaneous,robotics,5,"Load on the machine, in %."
+ros.sensor_quality_pct,corpus,float,%,True,percent,instantaneous,robotics,5,"Reported value for sensor quality pct, in %."
+ros.task_completion_rate,corpus,,%,True,percent,instantaneous,robotics,5,Reported value for task completion rate.
+ros.task_id,corpus,integer,,False,,instantaneous,robotics,6,Identifier of the machine.
+ros.task_status,corpus,string,,False,,instantaneous,robotics,6,Reported value for task status.
+ros.uptime_seconds,corpus,,s,False,time,cumulative,robotics,6,Reported value for uptime seconds.
+ros.wifi_signal_dbm,corpus,,,False,,instantaneous,robotics,6,Reported value for wifi signal dbm.
+sensor_readings.air_pressure,corpus,float,bar,True,pressure,instantaneous,universal,154,Pressure in the machine.
+sensor_readings.air_temperature,corpus,float,C,True,temperature,instantaneous,universal,80,Temperature of the machine.
+sensor_readings.ambient_temp,corpus,,C,True,temperature,instantaneous,universal,44,Temperature of the machine.
+sensor_readings.availability,corpus,enum,,True,percent,instantaneous,universal,145,Reported value for availability.
+sensor_readings.bad_parts,corpus,,,False,,instantaneous,universal,48,Reported value for bad parts.
+sensor_readings.bed_target,corpus,,,False,,setpoint,universal,1,Reported value for bed target.
+sensor_readings.bed_temp,corpus,,C,True,temperature,instantaneous,universal,43,Temperature of the print bed.
+sensor_readings.boom_angle,corpus,,,False,,instantaneous,universal,1,Reported value for boom angle.
+sensor_readings.bucket_load,corpus,,,False,,instantaneous,universal,2,Load on the machine.
+sensor_readings.chamber_target,corpus,,,False,,setpoint,universal,1,Reported value for chamber target.
+sensor_readings.chamber_temp,corpus,,C,True,temperature,instantaneous,universal,31,Temperature of the machine.
+sensor_readings.coolant_flow,corpus,float,L/min,True,flow,instantaneous,cnc,153,Flow rate through the coolant circuit.
+sensor_readings.coolant_level,corpus,,%,True,percent,instantaneous,cnc,34,Fill level of the coolant circuit.
+sensor_readings.coolant_pressure,corpus,,bar,True,pressure,instantaneous,cnc,37,Pressure in the coolant circuit.
+sensor_readings.coolant_temp,corpus,float,C,True,temperature,instantaneous,cnc,209,Temperature of the coolant circuit.
+sensor_readings.cooling_efficiency,corpus,float,%,True,percent,instantaneous,universal,80,Efficiency of the machine.
+sensor_readings.cooling_power,corpus,float,kW,True,power,instantaneous,universal,80,Power draw of electrical power.
+sensor_readings.core_speed_rpm,corpus,float,rpm,True,rotational,instantaneous,universal,157,"Speed of the machine, in rpm."
+sensor_readings.cycle_time,corpus,float,h,True,time,instantaneous,universal,154,Reported value for cycle time.
+sensor_readings.digital_input,corpus,boolean,,False,,instantaneous,universal,103,Reported value for digital input.
+sensor_readings.digital_output,corpus,boolean,,False,,instantaneous,universal,97,Reported value for digital output.
+sensor_readings.drive_temp,corpus,,C,True,temperature,instantaneous,universal,29,Temperature of the machine.
+sensor_readings.efficiency_factor,corpus,float,%,True,percent,instantaneous,universal,80,Efficiency of the machine.
+sensor_readings.fan_speed_rpm,corpus,float,rpm,True,rotational,instantaneous,universal,154,"Speed of the machine, in rpm."
+sensor_readings.good_parts,corpus,integer,,False,,instantaneous,universal,176,Reported value for good parts.
+sensor_readings.hotend2_target,corpus,,,False,,setpoint,additive,1,Reported value for hotend2 target.
+sensor_readings.hotend2_temp,corpus,,,False,,instantaneous,additive,1,Temperature of the hotend.
+sensor_readings.hotend_target,corpus,,,False,,setpoint,additive,1,Reported value for hotend target.
+sensor_readings.hotend_temp,corpus,,C,True,temperature,instantaneous,additive,43,Temperature of the hotend.
+sensor_readings.hydraulic_pressure,corpus,float,bar,True,pressure,instantaneous,universal,187,Pressure in the hydraulic system.
+sensor_readings.hydraulic_temp,corpus,,C,True,temperature,instantaneous,universal,35,Temperature of the hydraulic system.
+sensor_readings.implement_pressure,corpus,,,False,,instantaneous,universal,1,Pressure in the machine.
+sensor_readings.intake_temp,corpus,,C,True,temperature,instantaneous,universal,29,Temperature of the machine.
+sensor_readings.motor_power,corpus,float,kW,True,power,instantaneous,universal,77,Power draw of the motor.
+sensor_readings.motor_temp,corpus,,C,True,temperature,instantaneous,universal,39,Temperature of the motor.
+sensor_readings.oee,corpus,float,%,True,percent,instantaneous,universal,136,Reported value for oee.
+sensor_readings.oil_pressure,corpus,,bar,True,pressure,instantaneous,universal,39,Pressure in the lubrication system.
+sensor_readings.oil_temp,corpus,,C,True,temperature,instantaneous,universal,46,Temperature of the lubrication system.
+sensor_readings.performance,corpus,float,%,True,percent,instantaneous,universal,139,Reported value for performance.
+sensor_readings.planned_downtime,corpus,integer,h,True,time,cumulative,universal,149,Reported value for planned downtime.
+sensor_readings.power_consumption,corpus,float,kW,True,power,instantaneous,universal,148,Power draw of electrical power.
+sensor_readings.pressure,corpus,float,bar,True,pressure,instantaneous,universal,80,Pressure in the machine.
+sensor_readings.pressure_1,corpus,float,bar,True,pressure,instantaneous,universal,80,Pressure in the machine.
+sensor_readings.pressure_2,corpus,float,bar,True,pressure,instantaneous,universal,76,Pressure in the machine.
+sensor_readings.pressure_3,corpus,float,bar,True,pressure,instantaneous,universal,80,Pressure in the machine.
+sensor_readings.pressure_4,corpus,float,bar,True,pressure,instantaneous,universal,80,Pressure in the machine.
+sensor_readings.pressure_5,corpus,float,bar,True,pressure,instantaneous,universal,80,Pressure in the machine.
+sensor_readings.pressure_6,corpus,float,bar,True,pressure,instantaneous,universal,80,Pressure in the machine.
+sensor_readings.pressure_fan_inlet,corpus,float,bar,True,pressure,instantaneous,universal,184,Pressure in the machine.
+sensor_readings.process_temperature,corpus,float,C,True,temperature,instantaneous,universal,80,Temperature of the machine.
+sensor_readings.quality_rate,corpus,float,%,True,percent,instantaneous,universal,144,Reported value for quality rate.
+sensor_readings.register_value,corpus,float,,False,,instantaneous,universal,102,Reported value for register value.
+sensor_readings.reject_parts,corpus,integer,,False,,instantaneous,universal,146,Reported value for reject parts.
+sensor_readings.rotate,corpus,float,rpm,True,rotational,instantaneous,universal,80,Reported value for rotate.
+sensor_readings.speed_override,corpus,integer,%,True,percent,setpoint,universal,145,Speed of the machine.
+sensor_readings.tcp_speed,corpus,float,mm/min,True,linear_speed,instantaneous,robotics,152,Speed of the robot tool centre point.
+sensor_readings.temperature_1,corpus,float,C,True,temperature,instantaneous,universal,80,Temperature of the machine.
+sensor_readings.temperature_2,corpus,float,C,True,temperature,instantaneous,universal,80,Temperature of the machine.
+sensor_readings.temperature_3,corpus,float,C,True,temperature,instantaneous,universal,80,Temperature of the machine.
+sensor_readings.temperature_4,corpus,float,C,True,temperature,instantaneous,universal,80,Temperature of the machine.
+sensor_readings.tool_wear,corpus,integer,,False,,instantaneous,universal,79,Reported value for tool wear.
+sensor_readings.torque,corpus,float,Nm,True,torque,instantaneous,universal,80,Torque on the machine.
+sensor_readings.total_temp_hpc_outlet,corpus,float,C,True,temperature,cumulative,universal,190,Temperature of the machine.
+sensor_readings.total_temp_lpc_outlet,corpus,float,C,True,temperature,cumulative,universal,204,Temperature of the machine.
+sensor_readings.total_temp_lpt_outlet,corpus,float,C,True,temperature,cumulative,universal,191,Temperature of the machine.
+sensor_readings.transmission_temp,corpus,,C,True,temperature,instantaneous,universal,30,Temperature of the machine.
+sensor_readings.unplanned_downtime,corpus,integer,h,True,time,cumulative,universal,150,Reported value for unplanned downtime.
+sensor_readings.vibration,corpus,float,,False,,instantaneous,universal,80,Vibration measured on measured vibration.
+sensor_readings.vibration_1,corpus,float,,False,,instantaneous,universal,80,Vibration measured on measured vibration.
+sensor_readings.vibration_score,corpus,,,False,,instantaneous,universal,31,Vibration measured on measured vibration.
+sensor_readings.vibration_x,corpus,float,,False,,instantaneous,universal,229,Vibration measured on measured vibration.
+sensor_readings.volt,corpus,float,V,True,voltage,instantaneous,universal,80,Reported value for volt.
+sensor_readings.voltage,corpus,integer,V,True,voltage,instantaneous,universal,154,Voltage at the machine.
+sensor_readings.volume_flow_1,corpus,float,L/min,True,flow,instantaneous,universal,80,Flow rate through the machine.
+sensor_readings.volume_flow_2,corpus,float,L/min,True,flow,instantaneous,universal,80,Flow rate through the machine.
+sequence_number,corpus,,,False,,instantaneous,universal,7,Reported value for sequence number.
+serial_number,corpus,string,,False,,instantaneous,universal,149,Reported value for serial number.
+service_hours_remaining,corpus,,,False,,instantaneous,universal,1,Cumulative runtime of the machine.
+service_meter_hours,corpus,float,h,True,time,instantaneous,universal,41,"Cumulative runtime of the machine, in h."
+spindle_current_amps,corpus,,,False,,instantaneous,cnc,6,Electrical current drawn by the spindle.
+spindle_inertia,corpus,,,False,,instantaneous,cnc,6,Reported value for spindle inertia.
+spindle_load_pct,corpus,float,%,True,percent,instantaneous,cnc,255,"Load on the spindle, in %."
+spindle_override_pct,corpus,float,%,True,percent,setpoint,cnc,44,"Operator override applied to the spindle, in %."
+spindle_position,corpus,,,False,,instantaneous,cnc,8,Position of the spindle.
+spindle_power_kw,corpus,float,kW,True,power,instantaneous,cnc,6,"Power draw of the spindle, in kW."
+spindle_speed_commanded,corpus,,rpm,True,rotational,setpoint,cnc,62,Speed of the spindle.
+spindle_speed_rpm,corpus,integer,rpm,True,rotational,instantaneous,cnc,307,"Speed of the spindle, in rpm."
+spindle_temperature,corpus,,,False,,instantaneous,cnc,8,Temperature of the spindle.
+spindle_voltage,corpus,,,False,,instantaneous,cnc,7,Voltage at the spindle.
+timestamp,corpus,string,,False,,instantaneous,universal,122,Reported value for timestamp.
+tool_condition,corpus,,,False,,instantaneous,cnc,7,Reported value for tool condition.
+tool_id,corpus,string,,False,,instantaneous,cnc,164,Identifier of the active tool.
+tool_life_remaining,corpus,,,False,,cumulative,cnc,48,Reported value for tool life remaining.
+tool_life_used,corpus,,%,True,percent,cumulative,cnc,37,Reported value for tool life used.
+tool_number,corpus,,,False,,instantaneous,cnc,7,Reported value for tool number.
+vehicle.acceleration_x,corpus,,,False,,instantaneous,vehicle,6,Ratio for the vehicle.
+vehicle.acceleration_y,corpus,,,False,,instantaneous,vehicle,6,Ratio for the vehicle.
+vehicle.acceleration_z,corpus,,,False,,instantaneous,vehicle,6,Ratio for the vehicle.
+vehicle.air_inlet_temp,corpus,,,False,,instantaneous,vehicle,5,Temperature of the vehicle.
+vehicle.ambient.air_temp,corpus,,,False,,instantaneous,vehicle,12,Temperature of the vehicle.
+vehicle.ambient.barometric_pressure,corpus,,bar,True,pressure,instantaneous,vehicle,6,Pressure in the vehicle.
+vehicle.autonomy_level,corpus,,,False,,instantaneous,vehicle,5,Fill level of the vehicle.
+vehicle.battery_soc_pct,corpus,float,%,True,percent,instantaneous,vehicle,6,"Reported value for battery soc pct, in %."
+vehicle.battery_temp_c,corpus,float,degC,True,temperature,instantaneous,vehicle,5,"Temperature of the vehicle, in degC."
+vehicle.brake.air_pressure,corpus,,,False,,instantaneous,vehicle,5,Pressure in the vehicle.
+vehicle.brake.primary_air_pressure,corpus,,,False,,instantaneous,vehicle,7,Pressure in the vehicle.
+vehicle.brake.secondary_air_pressure,corpus,,,False,,instantaneous,vehicle,5,Pressure in the vehicle.
+vehicle.brake_pressure_pct,corpus,float,%,True,percent,instantaneous,vehicle,5,"Pressure in the vehicle, in %."
+vehicle.camera_fps,corpus,,,False,,instantaneous,vehicle,5,Reported value for camera fps.
+vehicle.dtc_code,corpus,string,,False,,instantaneous,vehicle,6,Code reported by the vehicle.
+vehicle.dtc_description,corpus,string,,False,,instantaneous,vehicle,5,Text description of the vehicle.
+vehicle.engine.actual_torque_pct,corpus,float,%,True,percent,instantaneous,vehicle,6,"Torque on the vehicle, in %."
+vehicle.engine.demand_torque_pct,corpus,float,%,True,percent,instantaneous,vehicle,7,"Torque on the vehicle, in %."
+vehicle.engine.exhaust_gas_temp,corpus,,,False,,instantaneous,vehicle,6,Temperature of the vehicle.
+vehicle.engine.fuel_rail_pressure,corpus,,bar,True,pressure,instantaneous,vehicle,6,Pressure in the vehicle.
+vehicle.engine.fuel_rate,corpus,,,False,,instantaneous,vehicle,6,Reported value for fuel rate.
+vehicle.engine.intake_manifold_pressure,corpus,,,False,,instantaneous,vehicle,7,Pressure in the vehicle.
+vehicle.engine.intake_manifold_temp,corpus,,,False,,instantaneous,vehicle,7,Temperature of the vehicle.
+vehicle.engine.load,corpus,,%,True,percent,instantaneous,vehicle,6,Load on the vehicle.
+vehicle.engine.oil_pressure,corpus,,bar,True,pressure,instantaneous,vehicle,7,Pressure in the lubrication system.
+vehicle.engine.oil_temp,corpus,,,False,,instantaneous,vehicle,7,Temperature of the lubrication system.
+vehicle.engine.throttle_position,corpus,,%,True,percent,instantaneous,vehicle,6,Position of the vehicle.
+vehicle.engine_rpm,corpus,float,rpm,True,rotational,instantaneous,vehicle,6,"Reported value for engine rpm, in rpm."
+vehicle.engine_temp_c,corpus,float,degC,True,temperature,instantaneous,vehicle,5,"Temperature of the vehicle, in degC."
+vehicle.fuel_level_pct,corpus,float,%,True,percent,instantaneous,vehicle,5,"Fill level of the vehicle, in %."
+vehicle.gps_altitude_m,corpus,float,m,False,,instantaneous,vehicle,6,"Reported value for gps altitude m, in m."
+vehicle.gps_latitude,corpus,,,False,,instantaneous,vehicle,5,Reported value for gps latitude.
+vehicle.gps_longitude,corpus,,,False,,instantaneous,vehicle,6,Reported value for gps longitude.
+vehicle.gyro_x,corpus,,,False,,instantaneous,vehicle,5,Reported value for gyro x.
+vehicle.gyro_y,corpus,,,False,,instantaneous,vehicle,5,Reported value for gyro y.
+vehicle.gyro_z,corpus,,,False,,instantaneous,vehicle,5,Reported value for gyro z.
+vehicle.harsh_accel_event,corpus,,,False,,instantaneous,vehicle,5,Reported value for harsh accel event.
+vehicle.harsh_brake_event,corpus,,,False,,instantaneous,vehicle,5,Reported value for harsh brake event.
+vehicle.harsh_cornering_event,corpus,,,False,,instantaneous,vehicle,5,Reported value for harsh cornering event.
+vehicle.heading_deg,corpus,float,deg,False,,instantaneous,vehicle,6,"Reported value for heading deg, in deg."
+vehicle.idle_duration_seconds,corpus,,s,False,time,instantaneous,vehicle,5,Ratio for the vehicle.
+vehicle.intervention_event,corpus,,,False,,instantaneous,vehicle,5,Reported value for intervention event.
+vehicle.lane_deviation_m,corpus,float,m,False,,instantaneous,vehicle,5,"Reported value for lane deviation m, in m."
+vehicle.lidar_point_count,corpus,integer,,False,,cumulative,vehicle,5,Count of the vehicle.
+vehicle.obstacle_distance_m,corpus,float,m,False,,cumulative,vehicle,5,"Reported value for obstacle distance m, in m."
+vehicle.odometer_km,corpus,,,False,,cumulative,vehicle,5,Reported value for odometer km.
+vehicle.radar_target_count,corpus,integer,,False,,setpoint,vehicle,5,Count of the vehicle.
+vehicle.speed_kmh,corpus,,kph,True,vehicle_speed,instantaneous,vehicle,6,Speed of the vehicle.
+vehicle.speed_mph,corpus,,mph,False,vehicle_speed,instantaneous,vehicle,5,Speed of the vehicle.
+vehicle.steering_angle_deg,corpus,float,deg,False,,instantaneous,vehicle,5,"Reported value for steering angle deg, in deg."
+vehicle.throttle_pct,corpus,float,%,True,percent,instantaneous,vehicle,5,"Reported value for throttle pct, in %."
+vehicle.tire_pressure_fl,corpus,,bar,True,pressure,instantaneous,vehicle,5,Pressure in the vehicle.
+vehicle.tire_pressure_fr,corpus,,bar,True,pressure,instantaneous,vehicle,5,Pressure in the vehicle.
+vehicle.tire_pressure_rl,corpus,,bar,True,pressure,instantaneous,vehicle,5,Pressure in the vehicle.
+vehicle.tire_pressure_rr,corpus,,bar,True,pressure,instantaneous,vehicle,5,Pressure in the vehicle.
+vehicle.transmission.oil_temp,corpus,,,False,,instantaneous,vehicle,7,Temperature of the lubrication system.
+vehicle.transmission_gear,corpus,,,False,,instantaneous,vehicle,6,Reported value for transmission gear.
+vehicle.trip_distance_km,corpus,,,False,,cumulative,vehicle,5,Reported value for trip distance km.
+vehicle.turbocharger.rpm,corpus,,rpm,True,rotational,instantaneous,vehicle,7,Reported value for rpm.
+vehicle.v2x_message_count,corpus,integer,,False,,cumulative,vehicle,5,Count of the vehicle.
+vehicle.wheel_speed_fl,corpus,,rpm,True,rotational,instantaneous,vehicle,5,Speed of the vehicle.
+vehicle.wheel_speed_fr,corpus,,rpm,True,rotational,instantaneous,vehicle,5,Speed of the vehicle.
+vehicle.wheel_speed_rl,corpus,,rpm,True,rotational,instantaneous,vehicle,5,Speed of the vehicle.
+vehicle.wheel_speed_rr,corpus,,rpm,True,rotational,instantaneous,vehicle,5,Speed of the vehicle.
+vibration.rms,corpus,,,False,,instantaneous,universal,6,Reported value for rms.
+workholding_pressure,corpus,,bar,True,pressure,instantaneous,cnc,7,Pressure in the machine.
+ac_current_phase_a,vocabulary,,A,True,current,instantaneous,,0,
+ac_current_phase_b,vocabulary,,,False,,instantaneous,,0,
+ac_current_phase_c,vocabulary,,,,,instantaneous,,0,
+ac_voltage_ll_ab,vocabulary,,,False,,instantaneous,,0,
+ac_voltage_ll_bc,vocabulary,,,False,,instantaneous,,0,
+ac_voltage_ll_ca,vocabulary,,,False,,instantaneous,,0,
+ac_voltage_phase_a,vocabulary,,,,,instantaneous,,0,
+ac_voltage_phase_b,vocabulary,,,False,,instantaneous,,0,
+ac_voltage_phase_c,vocabulary,,,,,instantaneous,,0,
+accel_z_m_s2,vocabulary,,m/s2,False,vibration_accel,instantaneous,,0,
+active_power_kw,vocabulary,,kW,True,power,instantaneous,energy,0,Total AC active power. Signed: export is negative.
+active_program,vocabulary,,,False,,instantaneous,,0,
+active_tool_id,vocabulary,,,False,,instantaneous,,0,
+agitator_speed_rpm,vocabulary,,rpm,True,rotational,instantaneous,,0,
+agitator_torque_nm,vocabulary,,Nm,True,torque,instantaneous,,0,
+air_pressure_bar,vocabulary,,bar,True,pressure,instantaneous,,0,
+airspeed_m_s,vocabulary,,m/s,False,linear_speed,instantaneous,,0,
+alarm_count,vocabulary,,,False,,cumulative,,0,
+alarm_high_c,vocabulary,,C,True,temperature,instantaneous,,0,
+alarm_label,vocabulary,,,False,,instantaneous,,0,
+alarm_low_c,vocabulary,,C,True,temperature,instantaneous,,0,
+altitude_m,vocabulary,,m,False,length,instantaneous,,0,
+ambient_temperature_c,vocabulary,,C,True,temperature,instantaneous,energy,0,Outdoor ambient air temperature. ADDED: no requested field holds the weather station's ambient reading.
+apparent_power_kva,vocabulary,,kVA,True,apparent_power,instantaneous,,0,
+auto_mode_active,vocabulary,,,False,,instantaneous,,0,
+availability_state,vocabulary,,,False,,instantaneous,,0,
+batch_volume_liters,vocabulary,,,False,,instantaneous,,0,
+battery_capacity_kwh,vocabulary,,kWh,True,energy,instantaneous,energy,0,"Battery nameplate usable capacity. ADDED: Pack_Energy_Wh is a rating, not cumulative production; mapping it to energy_delivered_kwh would be a category error."
+battery_cell_temp_max_c,vocabulary,,C,True,temperature,instantaneous,energy,0,Hottest cell temperature in the pack. ADDED: the Tesla BESS reports Cell_Temp_Max and no requested field holds it.
+battery_current_a,vocabulary,,A,True,current,instantaneous,,0,
+battery_current_ca,vocabulary,,,False,,instantaneous,,0,
+battery_remaining_pct,vocabulary,,%,True,percent,instantaneous,,0,
+battery_soc_pct,vocabulary,,%,True,percent,instantaneous,energy,0,"Battery state of charge, percent of usable capacity."
+battery_soh_pct,vocabulary,,%,True,percent,instantaneous,energy,0,"Battery state of health, percent of original capacity."
+battery_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+battery_voltage_mv,vocabulary,,,False,,instantaneous,,0,
+battery_voltage_v,vocabulary,,V,True,voltage,instantaneous,,0,
+bearing_drive_end_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+bearing_non_drive_end_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+belt_speed_mpm,vocabulary,,,False,,instantaneous,,0,
+brake_pressure_psi,vocabulary,,psi,False,pressure,instantaneous,,0,
+brake_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+bucket_fill_pct,vocabulary,,%,True,percent,instantaneous,,0,
+cap_torque_nm,vocabulary,,Nm,True,torque,instantaneous,,0,
+chamber_pressure_mbar,vocabulary,,mbar,False,pressure,instantaneous,,0,
+charge_cycles,vocabulary,,,False,,cumulative,energy,0,Lifetime battery equivalent full cycles.
+charge_rate_kw,vocabulary,,kW,True,power,instantaneous,energy,0,Battery charge power.
+chassis_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+chilled_water_return_temp_c,vocabulary,,C,True,temperature,instantaneous,,0,
+chilled_water_supply_temp_c,vocabulary,,C,True,temperature,instantaneous,,0,
+chilled_water_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+chiller_efficiency_kw_ton,vocabulary,,,False,,instantaneous,,0,
+chiller_status,vocabulary,,,False,,instantaneous,,0,
+cip_conductivity_ms,vocabulary,,ms,False,time,instantaneous,,0,
+cip_flow_lpm,vocabulary,,,False,,instantaneous,,0,
+cip_pressure_bar,vocabulary,,bar,True,pressure,instantaneous,,0,
+cip_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+climb_rate_m_s,vocabulary,,m/s,False,linear_speed,instantaneous,,0,
+co2_concentration_pct,vocabulary,,%,True,percent,instantaneous,,0,
+co2_ppm,vocabulary,,,False,,instantaneous,,0,
+cold_storage_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+column_bottom_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+column_pressure_bar,vocabulary,,bar,True,pressure,instantaneous,,0,
+column_top_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+commanded_linear_velocity_m_s,vocabulary,,m/s,False,linear_speed,instantaneous,,0,
+compression_force_kn,vocabulary,,,False,,instantaneous,,0,
+compression_ratio,vocabulary,,,False,,instantaneous,,0,
+compressor_current_amps_1,vocabulary,,,False,,instantaneous,,0,
+compressor_current_amps_2,vocabulary,,,False,,instantaneous,,0,
+compressor_discharge_pressure_bar,vocabulary,,bar,True,pressure,instantaneous,,0,
+compressor_relay_state,vocabulary,,,False,,instantaneous,,0,
+compressor_runtime_hours,vocabulary,,h,True,time,cumulative,,0,
+compressor_suction_pressure_bar,vocabulary,,bar,True,pressure,instantaneous,,0,
+compute_throughput,vocabulary,,,False,,instantaneous,,0,
+condenser_duty_kw,vocabulary,,kW,True,power,instantaneous,,0,
+condenser_pressure,vocabulary,,,False,,instantaneous,,0,
+condenser_pressure_bar,vocabulary,,bar,True,pressure,instantaneous,,0,
+condenser_temp_c,vocabulary,,C,True,temperature,instantaneous,,0,
+condenser_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+condenser_water_return_temp_c,vocabulary,,C,True,temperature,instantaneous,,0,
+condenser_water_supply_temp_c,vocabulary,,C,True,temperature,instantaneous,,0,
+controller_mode,vocabulary,,,False,,instantaneous,,0,
+coolant_level_pct,vocabulary,,%,True,percent,instantaneous,,0,
+coolant_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+cooling_capacity_tons,vocabulary,,,False,,instantaneous,,0,
+cooling_command,vocabulary,,,False,,instantaneous,,0,
+cooling_valve_pct,vocabulary,,%,True,percent,instantaneous,,0,
+cpu_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+cpu_utilization_pct,vocabulary,,%,True,percent,instantaneous,,0,
+cutout_high_c,vocabulary,,C,True,temperature,instantaneous,,0,
+cutout_low_c,vocabulary,,C,True,temperature,instantaneous,,0,
+damper_position_pct,vocabulary,,%,True,percent,instantaneous,,0,
+dc_bus_voltage_v,vocabulary,,V,True,voltage,instantaneous,energy,0,DC bus voltage.
+dc_current_a,vocabulary,,A,True,current,instantaneous,energy,0,DC-side current.
+dc_energy_total_wh,vocabulary,,Wh,False,energy,cumulative,,0,
+dc_power_kw,vocabulary,,kW,True,power,instantaneous,,0,
+dc_voltage_v,vocabulary,,V,True,voltage,instantaneous,energy,0,DC-side (array/string) voltage.
+defrost_relay_state,vocabulary,,,False,,instantaneous,,0,
+defrost_state,vocabulary,,,False,,instantaneous,,0,
+dig_force_kn,vocabulary,,,False,,instantaneous,,0,
+discharge_air_temp_c,vocabulary,,C,True,temperature,instantaneous,,0,
+discharge_pressure,vocabulary,,,False,,instantaneous,,0,
+discharge_pressure_bar,vocabulary,,bar,True,pressure,instantaneous,,0,
+discharge_rate_kw,vocabulary,,kW,True,power,instantaneous,energy,0,Battery discharge power.
+disk_read_iops,vocabulary,,,False,,instantaneous,,0,
+disk_write_iops,vocabulary,,,False,,instantaneous,,0,
+dissolved_oxygen_pct,vocabulary,,%,True,percent,instantaneous,,0,
+divert_valve_status,vocabulary,,,False,,instantaneous,,0,
+door_interlock_open,vocabulary,,,False,,instantaneous,,0,
+door_state,vocabulary,,,False,,instantaneous,,0,
+downtime_category,vocabulary,,,False,,instantaneous,,0,
+downtime_planned,vocabulary,,,False,,instantaneous,,0,
+dpf_soot_load_pct,vocabulary,,%,True,percent,instantaneous,,0,
+drive_current_x_a,vocabulary,,A,True,current,instantaneous,,0,
+drive_current_y_a,vocabulary,,A,True,current,instantaneous,,0,
+drive_current_z_a,vocabulary,,A,True,current,instantaneous,,0,
+drive_temperature_x_c,vocabulary,,C,True,temperature,instantaneous,,0,
+drive_temperature_y_c,vocabulary,,C,True,temperature,instantaneous,,0,
+drive_temperature_z_c,vocabulary,,C,True,temperature,instantaneous,,0,
+ejection_force_kn,vocabulary,,,False,,instantaneous,,0,
+energy_delivered_kwh,vocabulary,,kWh,True,energy,cumulative,energy,0,Cumulative energy delivered to load/grid.
+energy_received_kwh,vocabulary,,kWh,True,energy,cumulative,energy,0,Cumulative energy received from grid.
+engine_torque_pct,vocabulary,,%,True,percent,instantaneous,,0,
+error_count,vocabulary,,,False,,cumulative,,0,
+estop_active,vocabulary,,,False,,instantaneous,,0,
+evaporator_pressure,vocabulary,,,False,,instantaneous,,0,
+evaporator_temp_c,vocabulary,,C,True,temperature,instantaneous,,0,
+evaporator_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+event_flags_2,vocabulary,,,False,,instantaneous,,0,
+exhaust_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+fan_relay_state,vocabulary,,,False,,instantaneous,,0,
+fan_speed_pct,vocabulary,,%,True,percent,instantaneous,,0,
+fan_speed_rpm,vocabulary,,rpm,True,rotational,instantaneous,,0,
+feed_rate_mm_min,vocabulary,,mm/min,True,linear_speed,instantaneous,,0,
+fill_level_ml,vocabulary,,,False,,instantaneous,,0,
+fill_speed_bpm,vocabulary,,,False,,instantaneous,,0,
+filter_status,vocabulary,,,False,,instantaneous,,0,
+fouling_factor,vocabulary,,,False,,instantaneous,,0,
+fuel_consumption_lph,vocabulary,,,False,,instantaneous,,0,
+fuel_level_pct,vocabulary,,%,True,percent,instantaneous,,0,
+fuel_rate_l_h,vocabulary,,h,True,time,instantaneous,,0,
+gear_position,vocabulary,,,False,,instantaneous,,0,
+gps_fix_type,vocabulary,,,False,,instantaneous,,0,
+gps_satellites,vocabulary,,,False,,instantaneous,,0,
+gpu_clock_mhz,vocabulary,,,False,,instantaneous,,0,
+gpu_utilization_pct,vocabulary,,%,True,percent,instantaneous,,0,
+grid_frequency_hz,vocabulary,,Hz,True,rotational,instantaneous,energy,0,AC line frequency.
+ground_speed_kph,vocabulary,,kph,True,vehicle_speed,instantaneous,,0,
+groundspeed_m_s,vocabulary,,m/s,False,linear_speed,instantaneous,,0,
+heading_deg,vocabulary,,,False,,instantaneous,,0,
+heating_command,vocabulary,,,False,,instantaneous,,0,
+heating_valve_pct,vocabulary,,%,True,percent,instantaneous,,0,
+holding_tube_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+hx_inlet_cold_c,vocabulary,,C,True,temperature,instantaneous,,0,
+hx_inlet_hot_c,vocabulary,,C,True,temperature,instantaneous,,0,
+hx_outlet_cold_c,vocabulary,,C,True,temperature,instantaneous,,0,
+hx_outlet_hot_c,vocabulary,,C,True,temperature,instantaneous,,0,
+hydraulic_pressure_bar,vocabulary,,bar,True,pressure,instantaneous,,0,
+hydraulic_pressure_psi,vocabulary,,psi,False,pressure,instantaneous,,0,
+hydraulic_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+impeller_rotational_speed_rpm,vocabulary,,rpm,True,rotational,instantaneous,,0,
+inlet_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+intake_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+internal_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+interstage_pressure_bar,vocabulary,,bar,True,pressure,instantaneous,,0,
+inverter_cabinet_temp_c,vocabulary,,C,True,temperature,instantaneous,energy,0,Inverter cabinet internal temperature.
+inverter_event_flags,vocabulary,integer,,False,,instantaneous,energy,0,Inverter event/alarm bitfield (SunSpec Evt1).
+inverter_output_kw,vocabulary,,kW,True,power,instantaneous,energy,0,Inverter AC output power.
+inverter_state,vocabulary,enum,,False,,instantaneous,energy,0,Inverter operating state (SunSpec model 103 St).
+jacket_flow_lpm,vocabulary,,,False,,instantaneous,,0,
+jacket_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+joint_effort_0_nm,vocabulary,,Nm,True,torque,instantaneous,,0,
+joint_position_0_rad,vocabulary,,,False,,instantaneous,,0,
+joint_speed_rpm,vocabulary,,rpm,True,rotational,instantaneous,,0,
+joint_velocity_0_rad_s,vocabulary,,s,False,time,instantaneous,,0,
+label_speed_bpm,vocabulary,,,False,,instantaneous,,0,
+line_current_a,vocabulary,,A,True,current,instantaneous,energy,0,AC line current.
+line_voltage_v,vocabulary,,V,True,voltage,instantaneous,energy,0,Line-to-line AC voltage.
+linear_velocity_m_s,vocabulary,,m/s,False,linear_speed,instantaneous,,0,
+machine_name,vocabulary,,,False,,instantaneous,,0,
+mechanical_seal_chamber_pressure_bar,vocabulary,,bar,True,pressure,instantaneous,,0,
+mechanical_seal_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+memory_bandwidth,vocabulary,,,False,,instantaneous,,0,
+memory_used_gb,vocabulary,,,False,,cumulative,,0,
+memory_utilization_pct,vocabulary,,%,True,percent,instantaneous,,0,
+mixed_air_damper_pct,vocabulary,,%,True,percent,instantaneous,,0,
+mixed_air_temp_c,vocabulary,,C,True,temperature,instantaneous,,0,
+mixer_speed_rpm,vocabulary,,rpm,True,rotational,instantaneous,,0,
+mixer_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+mixer_torque_nm,vocabulary,,Nm,True,torque,instantaneous,,0,
+motor_current_amps,vocabulary,,,False,,instantaneous,,0,
+motor_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+motor_winding_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+network_rx_bytes,vocabulary,,,False,,instantaneous,,0,
+network_tx_bytes,vocabulary,,,False,,instantaneous,,0,
+npsh_available_m,vocabulary,,,False,,instantaneous,,0,
+npsh_required_m,vocabulary,,,False,,instantaneous,,0,
+occupancy_state,vocabulary,,,False,,instantaneous,,0,
+odometer_km,vocabulary,,,False,,cumulative,,0,
+oil_pressure,vocabulary,,,False,,instantaneous,,0,
+oil_pressure_bar,vocabulary,,bar,True,pressure,instantaneous,,0,
+oil_pressure_psi,vocabulary,,psi,False,pressure,instantaneous,,0,
+oil_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+other_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+output_apparent_power_va,vocabulary,,,False,,instantaneous,,0,
+output_load_pct,vocabulary,,%,True,percent,instantaneous,,0,
+outside_air_damper_pct,vocabulary,,%,True,percent,instantaneous,,0,
+outside_air_temp_c,vocabulary,,C,True,temperature,instantaneous,,0,
+oven_humidity_pct,vocabulary,,%,True,percent,instantaneous,,0,
+oven_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+panel_temperature_c,vocabulary,,C,True,temperature,instantaneous,energy,0,PV module back-surface temperature.
+pasteurizer_flow_lpm,vocabulary,,,False,,instantaneous,,0,
+pasteurizer_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+payload_tonnes,vocabulary,,,False,,instantaneous,,0,
+pdu_load_pct,vocabulary,,%,True,percent,instantaneous,,0,
+pdu_outlet_current_a,vocabulary,,A,True,current,instantaneous,,0,
+peak_demand_kw,vocabulary,,kW,True,power,instantaneous,energy,0,Peak demand over the billing interval.
+percent_rated_load_amps,vocabulary,,,False,,instantaneous,,0,
+ph,vocabulary,,,False,,instantaneous,,0,
+pitch_rad,vocabulary,,,False,,instantaneous,,0,
+polytropic_efficiency_pct,vocabulary,,%,True,percent,instantaneous,,0,
+position_x_mm,vocabulary,,mm,True,length,instantaneous,,0,
+position_y_mm,vocabulary,,mm,True,length,instantaneous,,0,
+position_z_mm,vocabulary,,mm,True,length,instantaneous,,0,
+power_consumption_kw,vocabulary,,kW,True,power,instantaneous,,0,
+power_draw_watts,vocabulary,,,False,,instantaneous,,0,
+power_factor,vocabulary,,ratio,True,,instantaneous,energy,0,Displacement power factor. Signed by convention.
+power_usage_effectiveness,vocabulary,,,False,,instantaneous,,0,
+product_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+psu_input_voltage,vocabulary,,,False,,instantaneous,,0,
+pump_cavitation_index,vocabulary,,,False,,instantaneous,,0,
+pump_differential_pressure_bar,vocabulary,,bar,True,pressure,instantaneous,,0,
+pump_discharge_pressure_bar,vocabulary,,bar,True,pressure,instantaneous,,0,
+pump_efficiency_pct,vocabulary,,%,True,percent,instantaneous,,0,
+pump_flow_lpm,vocabulary,,,False,,instantaneous,,0,
+pump_flow_rate_m3h,vocabulary,,,False,,instantaneous,,0,
+pump_head_m,vocabulary,,,False,,instantaneous,,0,
+pump_head_pressure_bar,vocabulary,,bar,True,pressure,instantaneous,,0,
+pump_speed_rpm,vocabulary,,rpm,True,rotational,instantaneous,,0,
+pump_suction_pressure_bar,vocabulary,,bar,True,pressure,instantaneous,,0,
+reactive_power_kvar,vocabulary,,kVAR,True,,instantaneous,energy,0,Total AC reactive power. Signed.
+reactor_level_pct,vocabulary,,%,True,percent,instantaneous,,0,
+reactor_pressure_bar,vocabulary,,bar,True,pressure,instantaneous,,0,
+reactor_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+reboiler_duty_kw,vocabulary,,kW,True,power,instantaneous,,0,
+reflux_ratio,vocabulary,,,False,,instantaneous,,0,
+reject_count,vocabulary,,,False,,cumulative,,0,
+relative_humidity_pct,vocabulary,,%,True,percent,instantaneous,universal,0,Relative humidity. Present in the corpus dictionary and targeted by the carrier and generic_iot packs but absent from the registry until now.
+relay_state,vocabulary,,,False,,instantaneous,,0,
+retarder_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+return_air_flow_cfm,vocabulary,,,False,,instantaneous,,0,
+return_air_temp_c,vocabulary,,C,True,temperature,instantaneous,,0,
+return_air_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+return_fan_status,vocabulary,,,False,,instantaneous,,0,
+roll_rad,vocabulary,,,False,,instantaneous,,0,
+runtime_hours,vocabulary,,h,True,time,cumulative,,0,
+runtime_remaining_min,vocabulary,,min,False,time,cumulative,,0,
+seal_pressure_bar,vocabulary,,bar,True,pressure,instantaneous,,0,
+servo_load_c_pct,vocabulary,,%,True,percent,instantaneous,,0,
+servo_load_pct,vocabulary,,%,True,percent,instantaneous,,0,
+servo_load_x_pct,vocabulary,,%,True,percent,instantaneous,,0,
+servo_load_y_pct,vocabulary,,%,True,percent,instantaneous,,0,
+servo_load_z_pct,vocabulary,,%,True,percent,instantaneous,,0,
+shelf_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+solar_irradiance_w_m2,vocabulary,,W/m2,True,,instantaneous,energy,0,Plane-of-array solar irradiance.
+space_temp_c,vocabulary,,C,True,temperature,instantaneous,,0,
+space_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+spindle_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+sterilization_cycle_time_min,vocabulary,,min,False,time,instantaneous,,0,
+sterilizer_pressure_bar,vocabulary,,bar,True,pressure,instantaneous,,0,
+sterilizer_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+stirrer_power_kw,vocabulary,,kW,True,power,instantaneous,,0,
+stirrer_speed_rpm,vocabulary,,rpm,True,rotational,instantaneous,,0,
+subcooling_k,vocabulary,,K,False,temperature,instantaneous,,0,
+suction_pressure,vocabulary,,,False,,instantaneous,,0,
+suction_pressure_bar,vocabulary,,bar,True,pressure,instantaneous,,0,
+superheat_k,vocabulary,,K,False,temperature,instantaneous,,0,
+supply_air_flow_cfm,vocabulary,,,False,,instantaneous,,0,
+supply_air_temp_c,vocabulary,,C,True,temperature,instantaneous,,0,
+supply_air_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+supply_fan_status,vocabulary,,,False,,instantaneous,,0,
+supply_static_pressure,vocabulary,,,False,,instantaneous,,0,
+swing_pressure_bar,vocabulary,,bar,True,pressure,instantaneous,,0,
+swing_torque_nm,vocabulary,,Nm,True,torque,instantaneous,,0,
+tablet_hardness_kp,vocabulary,,,False,,instantaneous,,0,
+tablet_weight_mg,vocabulary,,,False,,instantaneous,,0,
+tc_slip_pct,vocabulary,,%,True,percent,instantaneous,,0,
+temperature_air_c,vocabulary,,C,True,temperature,instantaneous,,0,
+temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+temperature_condenser_c,vocabulary,,C,True,temperature,instantaneous,,0,
+temperature_defrost_c,vocabulary,,C,True,temperature,instantaneous,,0,
+temperature_differential_c,vocabulary,,C,True,temperature,instantaneous,,0,
+temperature_evaporator_c,vocabulary,,C,True,temperature,instantaneous,,0,
+temperature_product_c,vocabulary,,C,True,temperature,instantaneous,,0,
+temperature_setpoint_c,vocabulary,,C,True,temperature,instantaneous,,0,
+temperature_suction_c,vocabulary,,C,True,temperature,instantaneous,,0,
+temperature_zone_1_c,vocabulary,,C,True,temperature,instantaneous,,0,
+temperature_zone_2_c,vocabulary,,C,True,temperature,instantaneous,,0,
+temperature_zone_3_c,vocabulary,,C,True,temperature,instantaneous,,0,
+temperature_zone_4_c,vocabulary,,C,True,temperature,instantaneous,,0,
+temperature_zone_5_c,vocabulary,,C,True,temperature,instantaneous,,0,
+temperature_zone_6_c,vocabulary,,C,True,temperature,instantaneous,,0,
+throttle_pct,vocabulary,,%,True,percent,instantaneous,,0,
+tire_pressure_bar,vocabulary,,bar,True,pressure,instantaneous,,0,
+tire_pressure_lf_psi,vocabulary,,psi,False,pressure,instantaneous,,0,
+tire_pressure_lr_psi,vocabulary,,psi,False,pressure,instantaneous,,0,
+tire_pressure_rf_psi,vocabulary,,psi,False,pressure,instantaneous,,0,
+tire_pressure_rr_psi,vocabulary,,psi,False,pressure,instantaneous,,0,
+transfer_cause,vocabulary,,,False,,instantaneous,,0,
+transformer_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+transmission_pressure_psi,vocabulary,,psi,False,pressure,instantaneous,,0,
+transmission_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+turret_speed_rpm,vocabulary,,rpm,True,rotational,instantaneous,,0,
+ups_status_bitmask,vocabulary,,,False,,instantaneous,,0,
+vehicle_speed_kph,vocabulary,,kph,True,vehicle_speed,instantaneous,,0,
+vessel_pressure_bar,vocabulary,,bar,True,pressure,instantaneous,,0,
+vessel_temperature_c,vocabulary,,C,True,temperature,instantaneous,,0,
+vibration_drive_end_axial_mm_s,vocabulary,,mm/s,False,linear_speed,instantaneous,,0,
+vibration_drive_end_radial_mm_s,vocabulary,,mm/s,False,linear_speed,instantaneous,,0,
+vibration_non_drive_end_axial_mm_s,vocabulary,,mm/s,False,linear_speed,instantaneous,,0,
+vibration_non_drive_end_radial_mm_s,vocabulary,,mm/s,False,linear_speed,instantaneous,,0,
+vibration_rms,vocabulary,,,False,,instantaneous,,0,
+vibration_rms_mm_s,vocabulary,,mm/s,False,linear_speed,instantaneous,,0,
+viscosity_cp,vocabulary,,,False,,instantaneous,,0,
+wind_speed_m_s,vocabulary,,m/s,True,linear_speed,instantaneous,energy,0,Wind speed. WMO convention is m/s.
+yaw_rad,vocabulary,,,False,,instantaneous,,0,
+zone_co2_ppm,vocabulary,,,False,,instantaneous,,0,
+zone_temp_c,vocabulary,,C,True,temperature,instantaneous,,0,

@@ -3,7 +3,13 @@
 An open vocabulary for normalizing industrial equipment telemetry across
 manufacturers, protocols, and platforms.
 
-**366 canonical fields. 16,908 vendor tag mappings. 18 OEM families. MIT licensed.**
+**694 canonical fields. 16,908 vendor tag mappings. 18 OEM families. MIT licensed.**
+
+> **v2.0.0 publishes the full vocabulary.** 366 of these fields are
+> corpus-attributed: real vendor tags were observed mapping onto them, and all
+> 16,908 mappings belong to those 366. The other 328 are names the kernel can
+> emit but that have no vendor tags yet. Every field says which it is in its
+> `provenance` column, so nothing here implies evidence it does not have.
 
 ## The problem
 
@@ -35,8 +41,16 @@ vendor tags observed to map onto it, and which OEM families those tags came from
 
 As of v1.1.0 a field also carries a **unit contract** and a **physics range**.
 The field name tells you what the value means; the contract tells you what unit
-it is in and which source units may be converted into it. 159 fields carry a
-unit contract, 192 carry physics bounds.
+it is in and which source units may be converted into it. 386 fields carry a
+unit contract, 219 carry physics bounds.
+
+Three fields are published **without** a contract, carrying a
+`contract_withheld` reason instead: `ac_voltage_phase_a`, `ac_current_phase_c`
+and `ac_voltage_phase_c`. The contract generator read the three-phase suffix as
+a unit (`_a` as Amps, `_c` as Celsius) when it actually means phase A and phase
+C, so it typed two electrical fields as temperatures that accept Fahrenheit. A
+contract you would corrupt data by following is worse than no contract, so
+those three ship without one until the source metadata is fixed.
 
 ```json
 {
@@ -103,7 +117,7 @@ target — without it, `operating_hours: 14203` (lifetime) and
 
 ```
 schema/
-  fields.json              all 366 canonical fields, full metadata
+  fields.json              all 694 canonical fields, full metadata
   fields.csv               same data, one row per field
   oem-mappings/            {raw_tag: canonical_field} per OEM family
   verticals/               field lists per machine class
@@ -169,19 +183,23 @@ one question, "what canonical field does this tag mean?", so its descriptive
 metadata is uneven. The files record which values were measured and which were
 inferred, rather than presenting a uniform guess:
 
-- **Types.** 172 of 366 fields have a type. 101 of those are marked
-  `observed`, meaning the type came from real sample values. The rest are
-  inferred from a unit or a name suffix. 194 fields are marked
-  `unspecified` because there was no basis to state one.
-- **Units.** 58 of 366 fields carry a unit. `declared` means a vertical pack
+- **Provenance.** 366 fields are `corpus`, 328 are `vocabulary`. Filter on the
+  `provenance` column before you use mapping counts for anything: every one of
+  the 16,908 mappings sits on a `corpus` field, and every `vocabulary` field
+  has a `mapping_count` of 0.
+- **Types.** 174 of 694 fields have a type, and 172 of those are on `corpus`
+  fields. The `vocabulary` tier is almost entirely untyped: it came from
+  deterministic packs that declare a unit, not a type.
+- **Units.** 386 of 694 fields carry a unit. `declared` means a vertical pack
   states it. `derived` means the field-name suffix implies it. A missing unit
   means unknown, not dimensionless.
 - **Descriptions.** These are generated from the field name and unit. They are
   editorial rather than extracted, and they are the easiest thing to improve.
 - **Process manufacturing.** `schema/verticals/process.json` lists
   74 process fields for pharma, food and beverage, and chemical
-  equipment. None of them have vendor tag mappings yet, so they are not counted
-  in the 366.
+  equipment. None of them have vendor tag mappings yet. As of v2.0.0 they are
+  counted in the 694 and marked `provenance: vocabulary`, rather than being
+  left out entirely as they were in the 366.
 
 Every field carries `type_source` and `unit_source` so you can filter down to
 only what was measured. Closing these gaps is what

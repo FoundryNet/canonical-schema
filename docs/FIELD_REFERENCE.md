@@ -1,6 +1,11 @@
 # Field Reference
 
-All 366 canonical fields, grouped by vertical.
+All 694 canonical fields.
+
+The per-field entries below cover the **366 corpus-attributed fields** — the
+ones with real vendor tags behind them. The remaining **328 vocabulary fields**
+are listed at the end: the kernel emits them, but no vendor tags map onto them
+yet, so there is nothing to document per field beyond a name and a unit.
 
 Each entry gives the field's type and unit with their provenance, a generated
 description, how many corpus mappings resolve to it, which OEM families
@@ -5535,11 +5540,147 @@ Mapped from: `Service_Hours_Remaining`
 
 ---
 
-## Process manufacturing (`process`), declared but unmapped
+## Vocabulary tier: declared but unmapped
 
-74 canonical names that the reference implementation accepts and that have
-no vendor tag mappings in the corpus. They are listed for completeness and are
-not counted in the 366. Vendor tags for these are the most useful
-contribution right now.
+328 canonical names the reference implementation accepts and emits, with
+no vendor tag mappings in the corpus yet. They are `provenance: vocabulary` in
+`fields.json` and carry `mapping_count: 0`. Vendor tags for these are the most
+useful contribution right now.
 
-`agitator_speed_rpm`, `agitator_torque_nm`, `batch_volume_liters`, `belt_speed_mpm`, `cap_torque_nm`, `chamber_pressure_mbar`, `cip_conductivity_ms`, `cip_flow_lpm`, `cip_pressure_bar`, `cip_temperature_c`, `co2_concentration_pct`, `cold_storage_temperature_c`, `column_bottom_temperature_c`, `column_pressure_bar`, `column_top_temperature_c`, `compression_force_kn`, `compression_ratio`, `compressor_discharge_pressure_bar`, `compressor_suction_pressure_bar`, `condenser_duty_kw`, `condenser_temperature_c`, `dissolved_oxygen_pct`, `ejection_force_kn`, `evaporator_temperature_c`, `exhaust_temperature_c`, `fill_level_ml`, `fill_speed_bpm`, `fouling_factor`, `holding_tube_temperature_c`, `hx_inlet_cold_c`, `hx_inlet_hot_c`, `hx_outlet_cold_c`, `hx_outlet_hot_c`, `interstage_pressure_bar`, `jacket_flow_lpm`, `jacket_temperature_c`, `label_speed_bpm`, `mixer_speed_rpm`, `mixer_temperature_c`, `mixer_torque_nm`, `npsh_available_m`, `npsh_required_m`, `oven_humidity_pct`, `oven_temperature_c`, `pasteurizer_flow_lpm`, `pasteurizer_temperature_c`, `ph`, `polytropic_efficiency_pct`, `product_temperature_c`, `pump_efficiency_pct`, `pump_flow_lpm`, `pump_head_m`, `pump_speed_rpm`, `reactor_level_pct`, `reactor_pressure_bar`, `reactor_temperature_c`, `reboiler_duty_kw`, `reflux_ratio`, `reject_count`, `seal_pressure_bar`, `shelf_temperature_c`, `sterilization_cycle_time_min`, `sterilizer_pressure_bar`, `sterilizer_temperature_c`, `stirrer_power_kw`, `stirrer_speed_rpm`, `subcooling_k`, `superheat_k`, `tablet_hardness_kp`, `tablet_weight_mg`, `turret_speed_rpm`, `vessel_pressure_bar`, `vessel_temperature_c`, `viscosity_cp`
+220 of them declare a unit; the rest declare none.
+They come from two sources: 300 from the deterministic vertical packs and 28
+from the 2026-08-22 energy sprint.
+
+### Contracts withheld
+
+These names are legitimate, but their generated unit contracts were wrong and
+have been withheld rather than published. The generator read a three-phase
+suffix as a unit — `_a` as Amps, `_c` as Celsius — when it means phase A and
+phase C:
+
+- `ac_current_phase_c` — typed dimension=temperature/unit=C accepting F/K/R, but this is a current. The builder read the '_c' phase suffix as Celsius.
+- `ac_voltage_phase_a` — typed dimension=current/unit=A, but this is a voltage. The builder read the '_a' phase suffix as Amps.
+- `ac_voltage_phase_c` — typed dimension=temperature/unit=C accepting F/K/R, but this is a voltage. The builder read the '_c' phase suffix as Celsius.
+
+### By declared unit
+
+**%** (33)
+
+`battery_remaining_pct`, `battery_soc_pct`, `battery_soh_pct`, `bucket_fill_pct`, `co2_concentration_pct`, `coolant_level_pct`, `cooling_valve_pct`, `cpu_utilization_pct`, `damper_position_pct`, `dissolved_oxygen_pct`, `dpf_soot_load_pct`, `engine_torque_pct`, `fan_speed_pct`, `fuel_level_pct`, `gpu_utilization_pct`, `heating_valve_pct`, `memory_utilization_pct`, `mixed_air_damper_pct`, `output_load_pct`, `outside_air_damper_pct`, `oven_humidity_pct`, `pdu_load_pct`, `polytropic_efficiency_pct`, `pump_efficiency_pct`, `reactor_level_pct`, `relative_humidity_pct`, `servo_load_c_pct`, `servo_load_pct`, `servo_load_x_pct`, `servo_load_y_pct`, `servo_load_z_pct`, `tc_slip_pct`, `throttle_pct`
+
+**A** (8)
+
+`ac_current_phase_a`, `battery_current_a`, `dc_current_a`, `drive_current_x_a`, `drive_current_y_a`, `drive_current_z_a`, `line_current_a`, `pdu_outlet_current_a`
+
+**C** (84)
+
+`alarm_high_c`, `alarm_low_c`, `ambient_temperature_c`, `battery_cell_temp_max_c`, `battery_temperature_c`, `bearing_drive_end_temperature_c`, `bearing_non_drive_end_temperature_c`, `brake_temperature_c`, `chassis_temperature_c`, `chilled_water_return_temp_c`, `chilled_water_supply_temp_c`, `chilled_water_temperature_c`, `cip_temperature_c`, `cold_storage_temperature_c`, `column_bottom_temperature_c`, `column_top_temperature_c`, `condenser_temp_c`, `condenser_temperature_c`, `condenser_water_return_temp_c`, `condenser_water_supply_temp_c`, `coolant_temperature_c`, `cpu_temperature_c`, `cutout_high_c`, `cutout_low_c`, `discharge_air_temp_c`, `drive_temperature_x_c`, `drive_temperature_y_c`, `drive_temperature_z_c`, `evaporator_temp_c`, `evaporator_temperature_c`, `exhaust_temperature_c`, `holding_tube_temperature_c`, `hx_inlet_cold_c`, `hx_inlet_hot_c`, `hx_outlet_cold_c`, `hx_outlet_hot_c`, `hydraulic_temperature_c`, `inlet_temperature_c`, `intake_temperature_c`, `internal_temperature_c`, `inverter_cabinet_temp_c`, `jacket_temperature_c`, `mechanical_seal_temperature_c`, `mixed_air_temp_c`, `mixer_temperature_c`, `motor_temperature_c`, `motor_winding_temperature_c`, `oil_temperature_c`, `other_temperature_c`, `outside_air_temp_c`, `oven_temperature_c`, `panel_temperature_c`, `pasteurizer_temperature_c`, `product_temperature_c`, `reactor_temperature_c`, `retarder_temperature_c`, `return_air_temp_c`, `return_air_temperature_c`, `shelf_temperature_c`, `space_temp_c`, `space_temperature_c`, `spindle_temperature_c`, `sterilizer_temperature_c`, `supply_air_temp_c`, `supply_air_temperature_c`, `temperature_air_c`, `temperature_c`, `temperature_condenser_c`, `temperature_defrost_c`, `temperature_differential_c`, `temperature_evaporator_c`, `temperature_product_c`, `temperature_setpoint_c`, `temperature_suction_c`, `temperature_zone_1_c`, `temperature_zone_2_c`, `temperature_zone_3_c`, `temperature_zone_4_c`, `temperature_zone_5_c`, `temperature_zone_6_c`, `transformer_temperature_c`, `transmission_temperature_c`, `vessel_temperature_c`, `zone_temp_c`
+
+**Hz** (1)
+
+`grid_frequency_hz`
+
+**K** (2)
+
+`subcooling_k`, `superheat_k`
+
+**Nm** (5)
+
+`agitator_torque_nm`, `cap_torque_nm`, `joint_effort_0_nm`, `mixer_torque_nm`, `swing_torque_nm`
+
+**V** (4)
+
+`battery_voltage_v`, `dc_bus_voltage_v`, `dc_voltage_v`, `line_voltage_v`
+
+**W/m2** (1)
+
+`solar_irradiance_w_m2`
+
+**Wh** (1)
+
+`dc_energy_total_wh`
+
+**bar** (22)
+
+`air_pressure_bar`, `cip_pressure_bar`, `column_pressure_bar`, `compressor_discharge_pressure_bar`, `compressor_suction_pressure_bar`, `condenser_pressure_bar`, `discharge_pressure_bar`, `hydraulic_pressure_bar`, `interstage_pressure_bar`, `mechanical_seal_chamber_pressure_bar`, `oil_pressure_bar`, `pump_differential_pressure_bar`, `pump_discharge_pressure_bar`, `pump_head_pressure_bar`, `pump_suction_pressure_bar`, `reactor_pressure_bar`, `seal_pressure_bar`, `sterilizer_pressure_bar`, `suction_pressure_bar`, `swing_pressure_bar`, `tire_pressure_bar`, `vessel_pressure_bar`
+
+**h** (3)
+
+`compressor_runtime_hours`, `fuel_rate_l_h`, `runtime_hours`
+
+**kVA** (1)
+
+`apparent_power_kva`
+
+**kVAR** (1)
+
+`reactive_power_kvar`
+
+**kW** (10)
+
+`active_power_kw`, `charge_rate_kw`, `condenser_duty_kw`, `dc_power_kw`, `discharge_rate_kw`, `inverter_output_kw`, `peak_demand_kw`, `power_consumption_kw`, `reboiler_duty_kw`, `stirrer_power_kw`
+
+**kWh** (3)
+
+`battery_capacity_kwh`, `energy_delivered_kwh`, `energy_received_kwh`
+
+**kph** (2)
+
+`ground_speed_kph`, `vehicle_speed_kph`
+
+**m** (1)
+
+`altitude_m`
+
+**m/s** (6)
+
+`airspeed_m_s`, `climb_rate_m_s`, `commanded_linear_velocity_m_s`, `groundspeed_m_s`, `linear_velocity_m_s`, `wind_speed_m_s`
+
+**m/s2** (1)
+
+`accel_z_m_s2`
+
+**mbar** (1)
+
+`chamber_pressure_mbar`
+
+**min** (2)
+
+`runtime_remaining_min`, `sterilization_cycle_time_min`
+
+**mm** (3)
+
+`position_x_mm`, `position_y_mm`, `position_z_mm`
+
+**mm/min** (1)
+
+`feed_rate_mm_min`
+
+**mm/s** (5)
+
+`vibration_drive_end_axial_mm_s`, `vibration_drive_end_radial_mm_s`, `vibration_non_drive_end_axial_mm_s`, `vibration_non_drive_end_radial_mm_s`, `vibration_rms_mm_s`
+
+**ms** (1)
+
+`cip_conductivity_ms`
+
+**psi** (8)
+
+`brake_pressure_psi`, `hydraulic_pressure_psi`, `oil_pressure_psi`, `tire_pressure_lf_psi`, `tire_pressure_lr_psi`, `tire_pressure_rf_psi`, `tire_pressure_rr_psi`, `transmission_pressure_psi`
+
+**ratio** (1)
+
+`power_factor`
+
+**rpm** (8)
+
+`agitator_speed_rpm`, `fan_speed_rpm`, `impeller_rotational_speed_rpm`, `joint_speed_rpm`, `mixer_speed_rpm`, `pump_speed_rpm`, `stirrer_speed_rpm`, `turret_speed_rpm`
+
+**s** (1)
+
+`joint_velocity_0_rad_s`
+
+**(no unit declared)** (108)
+
+`ac_current_phase_b`, `ac_current_phase_c`, `ac_voltage_ll_ab`, `ac_voltage_ll_bc`, `ac_voltage_ll_ca`, `ac_voltage_phase_a`, `ac_voltage_phase_b`, `ac_voltage_phase_c`, `active_program`, `active_tool_id`, `alarm_count`, `alarm_label`, `auto_mode_active`, `availability_state`, `batch_volume_liters`, `battery_current_ca`, `battery_voltage_mv`, `belt_speed_mpm`, `charge_cycles`, `chiller_efficiency_kw_ton`, `chiller_status`, `cip_flow_lpm`, `co2_ppm`, `compression_force_kn`, `compression_ratio`, `compressor_current_amps_1`, `compressor_current_amps_2`, `compressor_relay_state`, `compute_throughput`, `condenser_pressure`, `controller_mode`, `cooling_capacity_tons`, `cooling_command`, `defrost_relay_state`, `defrost_state`, `dig_force_kn`, `discharge_pressure`, `disk_read_iops`, `disk_write_iops`, `divert_valve_status`, `door_interlock_open`, `door_state`, `downtime_category`, `downtime_planned`, `ejection_force_kn`, `error_count`, `estop_active`, `evaporator_pressure`, `event_flags_2`, `fan_relay_state`, `fill_level_ml`, `fill_speed_bpm`, `filter_status`, `fouling_factor`, `fuel_consumption_lph`, `gear_position`, `gps_fix_type`, `gps_satellites`, `gpu_clock_mhz`, `heading_deg`, `heating_command`, `inverter_event_flags`, `inverter_state`, `jacket_flow_lpm`, `joint_position_0_rad`, `label_speed_bpm`, `machine_name`, `memory_bandwidth`, `memory_used_gb`, `motor_current_amps`, `network_rx_bytes`, `network_tx_bytes`, `npsh_available_m`, `npsh_required_m`, `occupancy_state`, `odometer_km`, `oil_pressure`, `output_apparent_power_va`, `pasteurizer_flow_lpm`, `payload_tonnes`, `percent_rated_load_amps`, `ph`, `pitch_rad`, `power_draw_watts`, `power_usage_effectiveness`, `psu_input_voltage`, `pump_cavitation_index`, `pump_flow_lpm`, `pump_flow_rate_m3h`, `pump_head_m`, `reflux_ratio`, `reject_count`, `relay_state`, `return_air_flow_cfm`, `return_fan_status`, `roll_rad`, `suction_pressure`, `supply_air_flow_cfm`, `supply_fan_status`, `supply_static_pressure`, `tablet_hardness_kp`, `tablet_weight_mg`, `transfer_cause`, `ups_status_bitmask`, `vibration_rms`, `viscosity_cp`, `yaw_rad`, `zone_co2_ppm`
+

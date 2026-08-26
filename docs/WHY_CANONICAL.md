@@ -47,7 +47,7 @@ per vendor, per site, per project, then discarded.
 
 The mapping table, published, so that it stops being rebuilt.
 
-It contains 366 canonical fields and 16,908 vendor tag mappings taken from a
+It contains 694 canonical fields and 16,908 vendor tag mappings taken from a
 production normalization corpus, covering 18 OEM families across CNC,
 robotics, additive, vehicle, and AMR equipment. It is not a new standard and does
 not compete with the ones above. Where MTConnect already has a name for
